@@ -1,0 +1,3348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Euphoria Studio de Beleza | Foz do Iguaçu</title>
+  <meta name="description" content="Cabelos, mechas, unhas, sobrancelhas, cílios e estética no Centro de Foz do Iguaçu. Agende seu horário no Euphoria Studio de Beleza." />
+  
+  <!-- Google Fonts: Cormorant Garamond (Display), Great Vibes (Script), Jost (Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Great+Vibes&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS + Configuração da Paleta Euphoria -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ameixa: '#462536',
+            malva: '#bf7e84',
+            taupe: '#795f68',
+            ink: '#1e1e1e',
+            surface: '#2e2e2e',
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Jost"', 'system-ui', 'sans-serif'],
+            script: ['"Great Vibes"', 'cursive'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+:root {
+  --primary-color: #462536;
+  --secondary-color: #bf7e84;
+  --accent-color: #795f68;
+  --background-dark: #1e1e1e;
+  --background-light: #2e2e2e;
+  --text-color: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  font-family: 'Jost', sans-serif;
+}
+
+body {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+/* Textura metálica Rose Gold / Champagne */
+.text-metal {
+  background: linear-gradient(135deg, #f7dcd4 0%, #bf7e84 48%, #e8c3b9 78%, #8f5a60 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Header Flutuante Glassmorphism */
+.site-header {
+  background: rgba(30, 30, 30, 0.45);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+.site-header.is-scrolled {
+  background: rgba(30, 30, 30, 0.82);
+  border-bottom-color: rgba(121, 95, 104, 0.3);
+  box-shadow: 0 16px 40px -20px rgba(0, 0, 0, 0.75);
+}
+
+.nav-link.is-active::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: #bf7e84;
+}
+
+/* Botões principais e secundários */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  color: #ffffff;
+  background: linear-gradient(135deg, #d39aa0 0%, #bf7e84 52%, #8f5a60 100%);
+  box-shadow: 0 14px 32px -12px rgba(191, 126, 132, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  text-decoration: none;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 38px -10px rgba(191, 126, 132, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.38);
+  filter: brightness(1.05);
+}
+.btn-primary.is-disabled {
+  opacity: 0.55;
+}
+
+.btn-glass {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(191, 126, 132, 0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.btn-glass:hover {
+  background: rgba(191, 126, 132, 0.16);
+  border-color: rgba(191, 126, 132, 0.75);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.btn-agendar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border-radius: 9999px;
+  padding: 0.55rem 1.15rem;
+  font-size: 13px;
+  font-weight: 500;
+  color: #ffffff;
+  background: rgba(191, 126, 132, 0.16);
+  border: 1px solid rgba(191, 126, 132, 0.45);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.btn-agendar:hover {
+  background: #bf7e84;
+  border-color: #bf7e84;
+  box-shadow: 0 8px 24px -8px rgba(191, 126, 132, 0.8);
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.85);
+  transition: all 0.3s ease;
+}
+.icon-btn:hover {
+  border-color: rgba(191, 126, 132, 0.7);
+  background: rgba(191, 126, 132, 0.15);
+  color: #ffffff;
+}
+
+.glass {
+  background: rgba(46, 46, 46, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Hero Art & Efeitos */
+.hero-art {
+  background:
+    radial-gradient(65% 55% at 75% 30%, rgba(191, 126, 132, 0.35), transparent 70%),
+    radial-gradient(60% 60% at 20% 20%, rgba(70, 37, 54, 0.9), transparent 75%),
+    linear-gradient(160deg, #2a1521 0%, #1e1e1e 65%, #161616 100%);
+}
+.hero-glow {
+  background: radial-gradient(50% 50% at 65% 40%, rgba(191, 126, 132, 0.18), transparent 70%);
+}
+
+/* Cards de serviço com spotlight interativo */
+.service-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 0%), rgba(191, 126, 132, 0.13), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(191, 126, 132, 0.45);
+  box-shadow: 0 24px 60px -28px rgba(0, 0, 0, 0.85);
+}
+.service-card:hover::before {
+  opacity: 1;
+}
+
+/* Indicadores de abas e idioma */
+.tab-indicator {
+  position: absolute;
+  top: 0.375rem;
+  bottom: 0.375rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #462536, #bf7e84);
+  box-shadow: 0 8px 24px -6px rgba(191, 126, 132, 0.65);
+  transition: left 0.35s cubic-bezier(0.22, 1, 0.36, 1), width 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
+}
+.lang-indicator {
+  background: linear-gradient(135deg, #462536, #bf7e84);
+  box-shadow: 0 4px 14px -2px rgba(191, 126, 132, 0.6);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.lang-pop {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-6px) scale(0.97);
+  transition: all 0.2s ease;
+}
+.lang-pop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+/* Menu Mobile */
+.mobile-menu {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+.mobile-menu.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.menu-backdrop {
+  background: rgba(20, 15, 18, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Instagram ring */
+.ig-ring {
+  background: linear-gradient(135deg, #f6d5cc, #bf7e84 50%, #462536);
+}
+
+/* Quiz band */
+.quiz-band {
+  background: radial-gradient(65% 55% at 80% 50%, rgba(70, 37, 54, 0.55), transparent 70%);
+}
+
+/* Animações sutis */
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.rise, .fade-up, .step-in {
+  animation: riseIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes pulseRing {
+  0% { transform: scale(1); opacity: 0.55; }
+  100% { transform: scale(1.55); opacity: 0; }
+}
+.fab-ring {
+  border: 1.5px solid #bf7e84;
+  animation: pulseRing 2.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+.pin-pulse {
+  background: rgba(191, 126, 132, 0.35);
+  animation: pulseRing 2.2s ease-out infinite;
+}
+
+.fab {
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.fab-out {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(16px);
+}
+.fab-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.ba-smooth .ba-clip, .ba-smooth .ba-handle {
+  transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+</style>
+
+  <!-- React 18 + Babel (Compila o código JSX direto no navegador sem precisar de Node.js) -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body class="bg-ink text-white antialiased selection:bg-malva selection:text-white">
+  <div id="root"></div>
+
+  <script type="text/babel">
+/* ==========================================================================
+   EUPHORIA STUDIO DE BELEZA — Foz do Iguaçu, PR
+   React + Tailwind CSS • Dark Editorial Luxury • Mobile-first • PT / ES / EN
+   --------------------------------------------------------------------------
+   ONDE EDITAR (tudo nesta parte de cima do arquivo):
+   • Contatos e horário ............ WHATSAPP_NUMBER, ADDRESS, HOURS
+   • Fotos do espaço ............... STUDIO_PHOTOS
+   • Posts do Instagram ............ INSTAGRAM_POSTS
+   • Avaliações do Google .......... GOOGLE_REVIEWS
+   • Equipe ........................ FOUNDER, PROS
+   • Todos os textos (3 idiomas) ... TRANSLATIONS
+   ========================================================================== */
+
+const { useState, useEffect, useLayoutEffect, useRef, useMemo, useCallback, createContext, useContext } = React;
+const { createRoot } = ReactDOM;
+
+/* --------------------------------------------------------------------------
+   CONTATOS, ENDEREÇO E HORÁRIO
+   -------------------------------------------------------------------------- */
+
+// WhatsApp oficial do studio: 55 + DDD + número, apenas dígitos.
+const WHATSAPP_NUMBER = "5545999933464";
+const WHATSAPP_DISPLAY = "(45) 99993-3464";
+
+const ADDRESS = {
+  street: "Rua Jorge Sanwais, 1602 - Centro",
+  city: "Foz do Iguaçu - PR",
+  cep: "85851-150",
+  full: "Rua Jorge Sanwais, 1602 - Centro, Foz do Iguaçu - PR, 85851-150",
+};
+
+// Terça a sábado, a partir das 8h. (Fechamento às 18h; ajuste "close" se mudar.)
+const HOURS = { open: 8, close: 18, days: ["Tue", "Wed", "Thu", "Fri", "Sat"] };
+
+const CONFIG = {
+  instagram: "euphoria_studiodebeleza",
+  // Fotos próprias opcionais para o hero e o antes/depois. Deixe "" para usar a arte do site.
+  heroImage: "",
+  beforeImage: "",
+  afterImage: "",
+};
+
+// Avaliações oficiais no Google (ver todas e avaliar usam o mesmo link).
+const GOOGLE_REVIEWS_URL = "https://share.google/7ggfIo8sHHPXowJyF";
+const GOOGLE_RATING = "5.0";
+
+const LOGO_FULL = "logo-euphoria.png";
+const LOGO_MARK = "logo-monograma.png";
+
+const IG_URL = `https://www.instagram.com/${CONFIG.instagram}/`;
+const MAPS_ROUTE = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(ADDRESS.full)}`;
+const MAPS_PLACE = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("Euphoria Studio de Beleza, " + ADDRESS.full)}`;
+const ext = { target: "_blank", rel: "noopener noreferrer" };
+const waUrl = (message) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+const LANGS = [
+  { id: "pt", label: "PT", name: "Português", html: "pt-BR" },
+  { id: "es", label: "ES", name: "Español", html: "es" },
+  { id: "en", label: "EN", name: "English", html: "en" },
+];
+
+/* --------------------------------------------------------------------------
+   FOTOS DO ESPAÇO
+   Troque "src" pelo caminho da foto. "detail" (opcional) mostra uma foto
+   pequena de detalhe no canto do card. Tags e legendas ficam em TRANSLATIONS
+   (space.cards), na mesma ordem.
+   -------------------------------------------------------------------------- */
+
+const STUDIO_PHOTOS = [
+  { src: "img/studio-01-recepcao.jpg", position: "50% 40%" },
+  { src: "img/studio-02-ambiente-amplo-poltronas.jpg", position: "50% 50%" },
+  { src: "img/studio-03-camarim-bancada.jpg", position: "50% 45%" },
+  { src: "img/studio-04-estacoes-atendimento.jpg", position: "50% 50%" },
+  { src: "img/studio-05-lounge-espera.jpg", position: "50% 55%", detail: "img/studio-06-produtos-joico-keune.jpg" },
+];
+
+/* --------------------------------------------------------------------------
+   INSTAGRAM (6 últimos posts/reels)
+   ⚠️ Fotos e legendas provisórias: troque pelos posts reais do perfil.
+   imageUrl: caminho da imagem • postUrl: link do post (ex.: https://www.instagram.com/p/XXXX/)
+   type: "reel" ou "post"
+   -------------------------------------------------------------------------- */
+
+const INSTAGRAM_POSTS = [
+  { imageUrl: "img/ig-01-neon.jpg", postUrl: IG_URL, type: "reel", caption: "O néon mais desejado do Centro de Foz ✨ Vem conhecer o nosso novo espaço." },
+  { imageUrl: "img/ig-02-recepcao.jpg", postUrl: IG_URL, type: "post", caption: "Recepção pronta para te receber com carinho e muito estilo." },
+  { imageUrl: "img/ig-03-poltronas.jpg", postUrl: IG_URL, type: "post", caption: "Poltronas confortáveis e luz pensada para cada detalhe da sua transformação." },
+  { imageUrl: "img/ig-04-bancada.jpg", postUrl: IG_URL, type: "reel", caption: "Bastidores de um dia de atendimento: técnica, cuidado e resultado." },
+  { imageUrl: "img/ig-05-home-care.jpg", postUrl: IG_URL, type: "post", caption: "Home care profissional para manter o resultado do salão em casa." },
+  { imageUrl: "img/ig-06-produtos.jpg", postUrl: IG_URL, type: "post", caption: "Joico, Keune e L’Oréal: só o melhor para os seus fios." },
+];
+
+/* --------------------------------------------------------------------------
+   AVALIAÇÕES DO GOOGLE
+   ⚠️ EXEMPLOS: cole aqui os textos literais das avaliações reais.
+   about: "williams" | "rosanna" | "thalita" | "espaco"
+   Os textos ficam no idioma original da cliente em todas as versões do site.
+   -------------------------------------------------------------------------- */
+
+const GOOGLE_REVIEWS = [
+  { name: "Cliente 1", about: "williams", text: "Fiz mechas com o Williams e fiquei apaixonada. Ele entendeu exatamente o que eu queria e cuidou da saúde do meu cabelo." },
+  { name: "Cliente 2", about: "rosanna", text: "A Rosanna é caprichosa demais. Unhas impecáveis e um atendimento muito carinhoso." },
+  { name: "Cliente 3", about: "thalita", text: "Design de sobrancelha perfeito com a Thalita, super natural e harmônico com o meu rosto." },
+  { name: "Cliente 4", about: "espaco", text: "Espaço lindo, climatizado e muito confortável. Dá vontade de ficar o dia todo." },
+  { name: "Cliente 5", about: "williams", text: "Corte e coloração impecáveis. Saí me sentindo outra pessoa." },
+  { name: "Cliente 6", about: "espaco", text: "Atendimento acolhedor do começo ao fim, em um ambiente elegante e muito bem cuidado." },
+];
+
+/* --------------------------------------------------------------------------
+   EQUIPE (textos de cargo, especialidades e bios ficam em TRANSLATIONS.team)
+   -------------------------------------------------------------------------- */
+
+const FOUNDER = { id: "janaina", name: "Janaina Prestes", photo: "img/equipe-janaina.jpg" };
+
+const PROS = [
+  { id: "williams", name: "Williams Sherman", first: "Williams", cat: "cabelos", photo: "img/equipe-williams.jpg", instagram: "williamsshermanhairstylist" },
+  { id: "rosanna", name: "Rosanna", first: "Rosanna", cat: "unhas", photo: "img/equipe-rosanna.jpg", instagram: "rosanna_manicure" },
+  { id: "thalita", name: "Thalita Hescheley", first: "Thalita", cat: "estetica", photo: "img/equipe-thalita.jpg", instagram: "hescheley_" },
+];
+
+const igFor = (handle) => `https://www.instagram.com/${handle}/`;
+
+/* --------------------------------------------------------------------------
+   SERVIÇOS (nomes, descrições e tempos ficam em TRANSLATIONS.serviceList)
+   -------------------------------------------------------------------------- */
+
+const CATEGORY_IDS = [
+  { id: "cabelos", icon: "scissors" },
+  { id: "tratamentos", icon: "droplets" },
+  { id: "unhas", icon: "hand" },
+  { id: "estetica", icon: "eye" },
+];
+
+const SERVICES = [
+  { id: "mechas", cat: "cabelos", tag: "desejado" },
+  { id: "balayage", cat: "cabelos" },
+  { id: "coloracao", cat: "cabelos" },
+  { id: "matizacao", cat: "cabelos" },
+  { id: "corte", cat: "cabelos" },
+  { id: "escova", cat: "cabelos" },
+  { id: "penteado", cat: "cabelos" },
+  { id: "spa", cat: "tratamentos", tag: "assinatura" },
+  { id: "hidratacao", cat: "tratamentos" },
+  { id: "reconstrucao", cat: "tratamentos" },
+  { id: "cronograma", cat: "tratamentos" },
+  { id: "botox", cat: "tratamentos" },
+  { id: "progressiva", cat: "tratamentos" },
+  { id: "manicure", cat: "unhas" },
+  { id: "pedicure", cat: "unhas" },
+  { id: "gel", cat: "unhas", tag: "queridinho" },
+  { id: "alongamentoGel", cat: "unhas" },
+  { id: "manutencao", cat: "unhas" },
+  { id: "spaPes", cat: "unhas" },
+  { id: "designSobrancelhas", cat: "estetica", tag: "pedido" },
+  { id: "henna", cat: "estetica" },
+  { id: "linhaEgipcia", cat: "estetica" },
+  { id: "browLamination", cat: "estetica" },
+  { id: "cilios", cat: "estetica" },
+  { id: "maquiagem", cat: "estetica" },
+  { id: "limpezaPele", cat: "estetica" },
+  { id: "microagulhamento", cat: "estetica" },
+  { id: "hydraGloss", cat: "estetica" },
+  { id: "drenagem", cat: "estetica" },
+  { id: "modeladora", cat: "estetica" },
+  { id: "bambuterapia", cat: "estetica" },
+  { id: "depilacao", cat: "estetica" },
+];
+
+const MAKEUP_ID = "maquiagem";
+
+// Quem costuma fazer cada serviço: usado para sugerir o profissional na mensagem.
+const PRO_FOR_SERVICE = {
+  mechas: "williams", balayage: "williams", coloracao: "williams", matizacao: "williams", corte: "williams", escova: "williams", penteado: "williams",
+  spa: "williams", hidratacao: "williams", reconstrucao: "williams", cronograma: "williams", botox: "williams", progressiva: "williams",
+  manicure: "rosanna", pedicure: "rosanna", gel: "rosanna", alongamentoGel: "rosanna", manutencao: "rosanna", spaPes: "rosanna", depilacao: "rosanna",
+  designSobrancelhas: "thalita", henna: "thalita", linhaEgipcia: "thalita", browLamination: "thalita", cilios: "thalita",
+  maquiagem: "janaina",
+};
+
+// Quiz: serviços recomendados por área + objetivo (textos em TRANSLATIONS.quiz.recs).
+const QUIZ_AREAS = [
+  { id: "cabelo", icon: "scissors" },
+  { id: "unhas", icon: "hand" },
+  { id: "olhar", icon: "eye" },
+  { id: "pele", icon: "leaf" },
+];
+const QUIZ_GOALS = [
+  { id: "renovar", icon: "sparkles" },
+  { id: "cuidar", icon: "droplets" },
+  { id: "evento", icon: "gem" },
+  { id: "relaxar", icon: "coffee" },
+];
+const RECS = {
+  cabelo: { renovar: ["mechas"], cuidar: ["reconstrucao"], evento: ["escova"], relaxar: ["spa"] },
+  unhas: { renovar: ["alongamentoGel"], cuidar: ["manicure", "pedicure"], evento: ["gel"], relaxar: ["spaPes"] },
+  olhar: { renovar: ["cilios"], cuidar: ["designSobrancelhas"], evento: ["browLamination"], relaxar: ["designSobrancelhas", "limpezaPele"] },
+  pele: { renovar: ["microagulhamento"], cuidar: ["limpezaPele"], evento: ["hydraGloss"], relaxar: ["drenagem"] },
+};
+
+const FEATURE_ICONS = ["gem", "sparkles", "heart", "shieldCheck"];
+const SHIFTS = [
+  { id: "manha", icon: "sun" },
+  { id: "tarde", icon: "sunset" },
+  { id: "flexivel", icon: "clock" },
+];
+const NAV_IDS = ["servicos", "transformacoes", "quiz", "avaliacoes", "equipe", "contato"];
+
+/* --------------------------------------------------------------------------
+   TRADUÇÕES (PT / ES / EN)
+   Todos os textos visíveis do site. Para editar uma frase, procure-a aqui e
+   altere nos três idiomas.
+   -------------------------------------------------------------------------- */
+
+const langTag = { pt: "", es: "[Idioma: Español]\n", en: "[Language: English]\n" };
+
+const TRANSLATIONS = {
+  /* ============================== PORTUGUÊS ============================== */
+  pt: {
+    meta: { title: "Euphoria Studio de Beleza | Foz do Iguaçu" },
+    langLabel: "Idioma",
+    nav: { servicos: "Serviços", transformacoes: "Transformações", quiz: "Seu protocolo", avaliacoes: "Avaliações", equipe: "Equipe", contato: "Contato" },
+    header: { book: "Agendar Horário", bookShort: "Agendar", openMenu: "Abrir menu", closeMenu: "Fechar menu", menu: "Menu", home: "Euphoria Studio de Beleza, voltar ao início" },
+    hero: {
+      badge: "Foz do Iguaçu • Experiência Exclusiva",
+      line1: "Sua beleza,",
+      line2: "em estado de euforia.",
+      text: "Cabelos, unhas, olhar e pele cuidados com técnica, produtos de alto padrão e aquele acolhimento que faz você querer voltar. Seu refúgio de beleza no centro de Foz do Iguaçu.",
+      book: "Agendar Experiência",
+      explore: "Explorar Serviços",
+      hours: "Terça a sábado, a partir das 8h",
+      location: "Centro de Foz do Iguaçu",
+    },
+    categories: { cabelos: "Cabelos & Mechas", tratamentos: "Tratamentos & Spa Capilar", unhas: "Unhas", estetica: "Sobrancelhas & Estética" },
+    tags: { desejado: "Mais desejado", assinatura: "Assinatura da casa", queridinho: "Queridinho", pedido: "Mais pedido" },
+    serviceList: {
+      mechas: ["Mechas Morena Iluminada", "Iluminação sob medida que valoriza seu tom natural, com fios luminosos e acabamento sofisticado.", "4h a 6h"],
+      balayage: ["Luzes & Balayage", "Degradê suave e natural, pensado para crescer com elegância e pedir menos manutenção.", "4h a 5h"],
+      coloracao: ["Coloração Personalizada", "Cor uniforme, brilho intenso e cobertura de brancos com produtos profissionais.", "2h"],
+      matizacao: ["Matização & Tonalização", "Neutraliza tons indesejados e devolve o frescor das suas mechas.", "1h"],
+      corte: ["Corte Feminino", "Corte pensado para o formato do seu rosto, a sua rotina e o seu estilo.", "1h"],
+      escova: ["Escova Modelada", "Movimento, volume e brilho com acabamento de salão.", "50 min"],
+      penteado: ["Penteados para Eventos", "Penteados elegantes para noivas, madrinhas, formaturas e ocasiões especiais.", "1h30"],
+      spa: ["Spa Capilar Euphoria", "Ritual com esfoliação do couro cabeludo, máscara nutritiva e massagem relaxante.", "1h30"],
+      hidratacao: ["Hidratação Profunda", "Reposição de água e maciez imediata para fios ressecados.", "1h"],
+      reconstrucao: ["Reconstrução Capilar", "Devolve força e resistência aos fios danificados por química ou calor.", "1h30"],
+      cronograma: ["Cronograma Capilar", "Plano personalizado de hidratação, nutrição e reconstrução ao longo das semanas.", "1h por sessão"],
+      botox: ["Botox Capilar", "Reduz o frizz, sela as cutículas e entrega brilho espelhado.", "2h"],
+      progressiva: ["Progressiva & Alinhamento", "Fios alinhados com aspecto natural e toque sedoso.", "3h a 4h"],
+      manicure: ["Manicure", "Cutilagem cuidadosa e esmaltação impecável.", "45 min"],
+      pedicure: ["Pedicure", "Pés bem cuidados, com acabamento delicado e duradouro.", "1h"],
+      gel: ["Esmaltação em Gel", "Brilho intenso que dura semanas, sem descascar.", "1h"],
+      alongamentoGel: ["Alongamento em Gel", "Unhas longas, resistentes e com formato personalizado.", "2h30"],
+      manutencao: ["Manutenção de Alongamento", "Reequilibra o crescimento e mantém o alongamento impecável.", "1h30"],
+      spaPes: ["Spa dos Pés", "Esfoliação, hidratação e massagem para pés macios e renovados.", "1h"],
+      designSobrancelhas: ["Design de Sobrancelhas", "Mapeamento facial para um desenho harmônico e natural.", "40 min"],
+      henna: ["Design com Henna", "Preenche falhas e realça o desenho com acabamento natural e duradouro.", "50 min"],
+      linhaEgipcia: ["Linha Egípcia", "Remoção precisa dos fios com linha, ideal para peles sensíveis.", "30 min"],
+      browLamination: ["Brow Lamination", "Fios alinhados, efeito preenchido e sobrancelhas marcantes.", "1h"],
+      cilios: ["Alongamento de Cílios", "Olhar marcante e sofisticado, com fios aplicados um a um.", "2h"],
+      maquiagem: ["Maquiagem", "Produções exclusivas para eventos, ensaios e momentos especiais, assinadas por Janaina Prestes.", "1h a 1h30"],
+      limpezaPele: ["Limpeza de Pele", "Remove impurezas, desobstrui os poros e devolve o viço da pele.", "1h30"],
+      microagulhamento: ["Microagulhamento", "Estimula o colágeno e melhora textura, marcas e manchas.", "1h"],
+      hydraGloss: ["Hydra Gloss", "Hidratação profunda com efeito glow e aspecto saudável.", "1h"],
+      drenagem: ["Drenagem Linfática", "Reduz o inchaço e traz uma sensação imediata de leveza.", "1h"],
+      modeladora: ["Massagem Modeladora", "Movimentos firmes que ajudam a modelar a silhueta.", "1h"],
+      bambuterapia: ["Bambuterapia", "Massagem com bambus que relaxa, modela e revitaliza.", "1h"],
+      depilacao: ["Depilação com Cera", "Pele lisinha por mais tempo, com técnica cuidadosa.", "a partir de 20 min"],
+    },
+    services: {
+      title: "Menu de serviços",
+      text: "Escolha uma categoria ou busque pelo nome. Ao tocar em Agendar, você monta o seu pedido em segundos.",
+      searchPlaceholder: "Buscar: mechas, gel, cílios…",
+      searchLabel: "Buscar serviço",
+      clear: "Limpar busca",
+      tabsLabel: "Categorias de serviço",
+      found: (n, q) => `${n} ${n === 1 ? "serviço encontrado" : "serviços encontrados"} para “${q}”`,
+      notFound: (q) => `Não encontramos “${q}” no menu.`,
+      notFoundText: "Fale com a equipe: muitos serviços são personalizados na hora.",
+      ask: "Perguntar no WhatsApp",
+      footnote: "Valores sob consulta. O tempo médio pode variar de acordo com o comprimento, o volume e o histórico dos fios.",
+      book: "Agendar",
+      bookAria: (name) => `Agendar ${name}`,
+    },
+    ba: { before: "Antes", after: "Depois", caption: "Mechas Morena Iluminada", hint: "Arraste para comparar", aria: "Comparar antes e depois. Use as setas para mover." },
+    transform: {
+      title: "Transformações reais",
+      text: "Cada resultado começa com uma conversa sobre o seu fio, a sua rotina e o que você quer ver no espelho.",
+      case: [["Técnica", "Mechas Morena Iluminada"], ["Tratamento", "Reconstrução + Spa Capilar"], ["Tempo no studio", "Cerca de 5 horas"], ["Manutenção", "A cada 3 a 4 meses"]],
+      cta: "Quero esse resultado",
+    },
+    instagram: { tagline: "Transformações, bastidores e horários livres da semana.", follow: "Seguir no Instagram", view: "Ver no Instagram ↗", reel: "Reel", post: "Foto" },
+    quiz: {
+      title: "Descubra seu Protocolo Euphoria",
+      text: "Responda duas perguntas rápidas e receba a recomendação ideal para você, já pronta para agendar.",
+      time: "Leva menos de 30 segundos.",
+      question: (n) => `Pergunta ${n} de 2`,
+      result: "Seu resultado",
+      restart: "Recomeçar",
+      back: "Voltar",
+      q1: "O que você deseja transformar hoje?",
+      q2: "Qual resultado você sonha?",
+      areas: { cabelo: ["Cabelo", "Cor, corte e brilho"], unhas: ["Unhas", "Mãos e pés impecáveis"], olhar: ["Olhar", "Sobrancelhas e cílios"], pele: ["Pele & corpo", "Facial e corporal"] },
+      goals: { renovar: ["Uma transformação marcante", "Quero mudar de verdade"], cuidar: ["Cuidar e recuperar", "Saúde em primeiro lugar"], evento: ["Brilhar em um evento", "Tenho data marcada"], relaxar: ["Um momento só meu", "Pausa e bem-estar"] },
+      ideal: "O protocolo ideal para você",
+      book: "Agendar meu protocolo",
+      redo: "Refazer o quiz",
+      recs: {
+        cabelo: {
+          renovar: ["Iluminação sob medida que abre o rosto e entrega aquele efeito “uau” com aspecto natural. Finalizamos com tratamento para garantir brilho e saúde aos fios.", "4h a 6h"],
+          cuidar: ["Devolve força, maciez e resistência aos fios fragilizados. É o ponto de partida ideal para um cronograma capilar feito para você.", "1h30"],
+          evento: ["Volume, movimento e brilho de salão para você chegar deslumbrante. Quer algo ainda mais especial? Pergunte pelos nossos penteados.", "50 min"],
+          relaxar: ["Um ritual de pausa: esfoliação do couro cabeludo, máscara nutritiva e massagem relaxante. Você sai leve, e os fios saem radiantes.", "1h30"],
+        },
+        unhas: {
+          renovar: ["Unhas longas, resistentes e com formato pensado para as suas mãos. Elegância que dura semanas.", "2h30"],
+          cuidar: ["Cutilagem cuidadosa, hidratação e esmaltação impecável para mãos e pés sempre bem cuidados.", "1h45"],
+          evento: ["Brilho intenso e acabamento perfeito que não descasca. Ideal para fotos, festas e viagens.", "1h"],
+          relaxar: ["Esfoliação, hidratação e massagem para pés macios e uma sensação imediata de leveza.", "1h"],
+        },
+        olhar: {
+          renovar: ["Olhar marcante desde o momento em que você acorda, com fios aplicados um a um para um efeito sofisticado.", "2h"],
+          cuidar: ["Mapeamento facial para um desenho que harmoniza com os seus traços, sem perder a naturalidade.", "40 min"],
+          evento: ["Sobrancelhas alinhadas e com efeito preenchido que emolduram o olhar em qualquer foto.", "1h"],
+          relaxar: ["Um combo de autocuidado: olhar harmonizado e pele limpa e luminosa na mesma visita.", "2h10"],
+        },
+        pele: {
+          renovar: ["Estimula a produção de colágeno e melhora textura, marcas e manchas para uma pele visivelmente renovada.", "1h"],
+          cuidar: ["Remove impurezas, desobstrui os poros e devolve o viço. O primeiro passo de qualquer rotina de pele.", "1h30"],
+          evento: ["Hidratação profunda com efeito glow para uma pele luminosa no grande dia.", "1h"],
+          relaxar: ["Movimentos suaves que reduzem o inchaço e trazem leveza imediata. Combine com bambuterapia para um momento completo.", "1h"],
+        },
+      },
+    },
+    experience: {
+      title: "Mais que um salão, uma experiência",
+      text: "Do primeiro olá no WhatsApp ao último retoque no espelho, cada etapa é pensada para você se sentir cuidada, ouvida e confiante.",
+      features: [
+        ["Atendimento exclusivo", "Hora marcada e atenção total. Seu horário é só seu."],
+        ["Produtos de alto padrão", "Linhas profissionais escolhidas para resultados bonitos e saudáveis."],
+        ["Ambiente acolhedor", "Um refúgio no centro de Foz para desacelerar e se cuidar."],
+        ["Cuidado e higiene", "Materiais higienizados e protocolos rigorosos em cada atendimento."],
+      ],
+    },
+    reviews: {
+      title: "Avaliações no Google",
+      ratingAria: "Nota 5.0 de 5 no Google",
+      ratingText: "Nota máxima no Google, com base nas avaliações verificadas das nossas clientes em Foz do Iguaçu.",
+      seeAll: "Ver todas as avaliações no Google",
+      rate: "Avaliar o Studio no Google",
+      starsAria: "5 de 5 estrelas",
+      about: { williams: "Atendimento com Williams", rosanna: "Atendimento com Rosanna", thalita: "Atendimento com Thalita", espaco: "Conforto do espaço" },
+      original: "",
+    },
+    space: {
+      title: "O nosso espaço",
+      text: "Um studio amplo, climatizado e desenhado nos detalhes para receber você com conforto e elegância, no coração de Foz do Iguaçu.",
+      prev: "Foto anterior",
+      next: "Próxima foto",
+      detailAlt: "Detalhe da prateleira com produtos Joico, Keune e L’Oréal",
+      cards: [
+        ["Recepção & Boas-Vindas", "Recepção autoral com atmosfera acolhedora desde o primeiro instante.", "Recepção do Euphoria com balcão rosé, painel ripado iluminado e néon Euphoria"],
+        ["Estações de Atendimento & Conforto", "Amplitude, climatização e poltronas projetadas para o seu máximo conforto.", "Salão amplo com poltronas capitonê off-white e parede iluminada"],
+        ["Camarim & Produção", "Bancadas completas com iluminação técnica de precisão para maquiagem e olhar.", "Camarim com bancada rosé, luz em arco e poltrona de atendimento"],
+        ["Estrutura Integrada de Hair & Spa", "Espaço moderno que une tecnologia capilar, colorimetria e bem-estar.", "Estações de atendimento com poltronas, bancadas e iluminação"],
+        ["Lounge de Espera & Alta Performance", "Cada detalhe pensado para você relaxar enquanto cuidamos da sua beleza com linhas internacionais como Joico, Keune e L’Oréal.", "Lounge de espera com sofá em veludo rosé"],
+      ],
+    },
+    team: {
+      title: "Nossa equipe",
+      text: "Conheça quem está por trás de cada transformação no Euphoria. Escolha quem vai cuidar de você e agende direto.",
+      founderTitle: "Fundadora & Direção • Beauty Artist",
+      founderBio: "À frente da direção e curadoria do Euphoria Studio de Beleza, Janaina Prestes idealizou cada detalhe do espaço para oferecer uma experiência acolhedora e de alto padrão, além de assinar produções exclusivas de maquiagem para momentos especiais.",
+      whatDoes: "O que faz",
+      bookWith: (n) => `Agendar com ${n}`,
+      instagramOf: (n, h) => `Instagram de ${n} (@${h})`,
+      photoOf: (n) => `Foto de ${n}`,
+      pros: {
+        williams: {
+          title: "Hair Stylist • Colorimetria & Visagismo",
+          clear: "Cabeleireiro & Colorimetria",
+          services: "Mechas, Loiros, Colorimetria, Cortes com Visagismo, Tratamentos e Alinhamento",
+          bio: "Com 25 anos de experiência, Williams é especialista em colorimetria, mechas personalizadas, correção de cor e cortes com visagismo. Seu atendimento une diagnóstico preciso, técnicas avançadas e tratamentos capilares, entregando transformações sofisticadas que valorizam sua identidade.",
+        },
+        rosanna: {
+          title: "Nail Designer • Manicure, Pedicure & Estética",
+          clear: "Manicure, Pedicure & Estética",
+          services: "Cutilagem, Esmaltação, Alongamento em Gel, Spa dos Pés e Depilação",
+          bio: "Com mais de 20 anos de atuação, Rosanna oferece um cuidado completo com cutilagem, manicure, pedicure, alongamento em gel, spa dos pés e depilação, garantindo sempre um acabamento impecável, duradouro e elegante.",
+        },
+        thalita: {
+          title: "Lash & Brow Designer • Especialista do Olhar",
+          clear: "Sobrancelhas & Cílios",
+          services: "Design de Sobrancelhas, Henna, Linha Egípcia e Alongamento de Cílios",
+          bio: "Especialista em realçar a beleza natural do olhar, Thalita domina técnicas de design de sobrancelhas, incluindo aplicação de henna e linha egípcia, além de alongamento de cílios, entregando resultados delicados, harmônicos e sofisticados.",
+        },
+      },
+    },
+    booking: {
+      title: "Agendamento rápido",
+      text: "Monte o seu pedido em poucos toques. A equipe confirma o horário com você pelo WhatsApp.",
+      hours: "Terça a sábado, a partir das 8h",
+      steps: ["Seu nome", "Escolha o profissional", "Procedimentos desejados", "Período preferido"],
+      optional: "opcional",
+      namePlaceholder: "Como podemos te chamar?",
+      nameLabel: "Seu nome",
+      nameError: "Digite o seu nome para a equipe saber com quem está falando.",
+      proHint: "Opcional: se preferir, a recepção indica o especialista ideal para os seus procedimentos.",
+      servicesHelp: "Escolha a categoria e toque em quantos procedimentos quiser.",
+      selected: "Selecionados:",
+      remove: (s) => `Remover ${s}`,
+      servicesError: "Escolha ao menos um procedimento.",
+      makeupTitle: "Maquiagem é um atendimento exclusivo",
+      makeupText: "As produções de maquiagem são assinadas pela nossa fundadora, Janaina Prestes.",
+      makeupSelect: "Agendar maquiagem com Janaina",
+      makeupSelected: "Janaina selecionada",
+      makeupLabel: "Janaina Prestes (Maquiagem)",
+      shifts: { manha: ["Manhã", "8h às 12h"], tarde: ["Tarde", "12h às 18h"], flexivel: ["Flexível", "Qualquer horário"] },
+      whenLabel: "Tem algum dia ou horário específico em mente?",
+      whenPlaceholder: "Ex.: sexta-feira às 14h",
+      whenIdeas: ["O quanto antes", "Sexta-feira às 14h", "Sábado de manhã"],
+      summary: "Seu pedido",
+      progress: (n) => `${n} de 4 etapas`,
+      previewTitle: "Prévia da mensagem no WhatsApp",
+      now: "agora",
+      phName: "[seu nome]",
+      phServices: "[escolha ao menos um]",
+      missing: (items) => `Para enviar, falta: ${items.join(" e ")}.`,
+      missingName: "seu nome",
+      missingServices: "ao menos um procedimento",
+      send: "Enviar Solicitação no WhatsApp",
+      note: "O WhatsApp abre com a mensagem pronta. É só tocar em enviar.",
+      reset: "Limpar pedido",
+      proFallback: "A definir com a recepção",
+      suggested: "sugestão",
+      msg: {
+        intro: (name) => `Olá, equipe do Euphoria Studio de Beleza! ✨ Meu nome é *${name}*. Gostaria de verificar a disponibilidade para agendar:`,
+        services: "• Procedimento(s): ",
+        pro: "• Profissional: ",
+        shift: "• Preferência de turno: ",
+        when: "• Dia/Horário específico: ",
+        outro: "Aguardo o retorno para confirmarmos!",
+      },
+    },
+    contact: {
+      title: "Onde estamos",
+      text: "No Centro de Foz do Iguaçu, em frente ao Looby. Fácil de chegar e com todo o carinho esperando por você.",
+      address: "Endereço",
+      reference: "Em frente ao Looby",
+      hours: "Horário",
+      days: "Terça a sábado",
+      closedDays: "Domingo e segunda",
+      closed: "Fechado",
+      range: "8h às 18h",
+      openNow: "Aberto agora",
+      closedNow: "Fechado agora",
+      whatsapp: "WhatsApp",
+      route: "Traçar Rota no Google Maps",
+      chat: "Chamar no WhatsApp",
+      mapAria: "Abrir a localização do studio no Google Maps",
+      mapSub: "Em frente ao Looby, Centro",
+      openMaps: "Abrir no Maps",
+    },
+    footer: {
+      tagline: "Seu refúgio de beleza e bem-estar no centro de Foz do Iguaçu.",
+      nav: "Navegue",
+      visit: "Visite",
+      hours: "Terça a sábado, a partir das 8h",
+      book: "Agendar Horário",
+      rights: "Todos os direitos reservados.",
+      made: "Feito com carinho em Foz do Iguaçu.",
+    },
+    fab: { label: "Fale pelo WhatsApp", aria: "Conversar pelo WhatsApp" },
+    wa: {
+      hello: "Olá! Vim pelo site do Euphoria Studio de Beleza e gostaria de agendar um horário.",
+      ask: (q) => `Olá! Vim pelo site do Euphoria Studio de Beleza e gostaria de saber se vocês fazem: ${q}.`,
+    },
+  },
+
+  /* =============================== ESPAÑOL =============================== */
+  es: {
+    meta: { title: "Euphoria Studio de Beleza | Foz do Iguaçu" },
+    langLabel: "Idioma",
+    nav: { servicos: "Servicios", transformacoes: "Transformaciones", quiz: "Tu protocolo", avaliacoes: "Reseñas", equipe: "Equipo", contato: "Contacto" },
+    header: { book: "Reservar Turno", bookShort: "Reservar", openMenu: "Abrir menú", closeMenu: "Cerrar menú", menu: "Menú", home: "Euphoria Studio de Beleza, volver al inicio" },
+    hero: {
+      badge: "Foz do Iguaçu • Experiencia Exclusiva",
+      line1: "Tu belleza,",
+      line2: "en estado de euforia.",
+      text: "Cabello, uñas, mirada y piel cuidados con técnica, productos de alto nivel y esa calidez que te hace querer volver. Tu refugio de belleza en el centro de Foz do Iguaçu.",
+      book: "Reservar Experiencia",
+      explore: "Ver Servicios",
+      hours: "Martes a sábado, desde las 8 h",
+      location: "Centro de Foz do Iguaçu",
+    },
+    categories: { cabelos: "Cabello & Mechas", tratamentos: "Tratamientos & Spa Capilar", unhas: "Uñas", estetica: "Cejas & Estética" },
+    tags: { desejado: "Más deseado", assinatura: "Firma de la casa", queridinho: "Favorito", pedido: "Más pedido" },
+    serviceList: {
+      mechas: ["Mechas Morena Iluminada", "Iluminación a medida que realza tu tono natural, con hebras luminosas y un acabado sofisticado.", "4 a 6 h"],
+      balayage: ["Reflejos & Balayage", "Degradado suave y natural, pensado para crecer con elegancia y requerir menos mantenimiento.", "4 a 5 h"],
+      coloracao: ["Coloración Personalizada", "Color uniforme, brillo intenso y cobertura de canas con productos profesionales.", "2 h"],
+      matizacao: ["Matización & Tonalización", "Neutraliza tonos no deseados y devuelve la frescura a tus mechas.", "1 h"],
+      corte: ["Corte Femenino", "Corte pensado para la forma de tu rostro, tu rutina y tu estilo.", "1 h"],
+      escova: ["Brushing Modelado", "Movimiento, volumen y brillo con acabado de salón.", "50 min"],
+      penteado: ["Peinados para Eventos", "Peinados elegantes para novias, madrinas, graduaciones y ocasiones especiales.", "1 h 30"],
+      spa: ["Spa Capilar Euphoria", "Ritual con exfoliación del cuero cabelludo, mascarilla nutritiva y masaje relajante.", "1 h 30"],
+      hidratacao: ["Hidratación Profunda", "Reposición de agua y suavidad inmediata para cabellos resecos.", "1 h"],
+      reconstrucao: ["Reconstrucción Capilar", "Devuelve fuerza y resistencia al cabello dañado por químicos o calor.", "1 h 30"],
+      cronograma: ["Cronograma Capilar", "Plan personalizado de hidratación, nutrición y reconstrucción a lo largo de las semanas.", "1 h por sesión"],
+      botox: ["Botox Capilar", "Reduce el frizz, sella las cutículas y aporta un brillo espejo.", "2 h"],
+      progressiva: ["Alisado Progresivo", "Cabello alineado con aspecto natural y tacto sedoso.", "3 a 4 h"],
+      manicure: ["Manicura", "Cutículas cuidadas y esmaltado impecable.", "45 min"],
+      pedicure: ["Pedicura", "Pies bien cuidados, con un acabado delicado y duradero.", "1 h"],
+      gel: ["Esmaltado en Gel", "Brillo intenso que dura semanas, sin descascararse.", "1 h"],
+      alongamentoGel: ["Uñas Esculpidas en Gel", "Uñas largas, resistentes y con forma personalizada.", "2 h 30"],
+      manutencao: ["Mantenimiento de Uñas en Gel", "Reequilibra el crecimiento y mantiene tus uñas impecables.", "1 h 30"],
+      spaPes: ["Spa de Pies", "Exfoliación, hidratación y masaje para pies suaves y renovados.", "1 h"],
+      designSobrancelhas: ["Diseño de Cejas", "Mapeo facial para un diseño armónico y natural.", "40 min"],
+      henna: ["Diseño con Henna", "Rellena huecos y realza el diseño con un acabado natural y duradero.", "50 min"],
+      linhaEgipcia: ["Depilación con Hilo", "Retiro preciso del vello con hilo, ideal para pieles sensibles.", "30 min"],
+      browLamination: ["Laminado de Cejas", "Vellos alineados, efecto relleno y cejas marcadas.", "1 h"],
+      cilios: ["Extensión de Pestañas", "Mirada marcada y sofisticada, con pestañas aplicadas una a una.", "2 h"],
+      maquiagem: ["Maquillaje", "Producciones exclusivas para eventos, sesiones de fotos y momentos especiales, firmadas por Janaina Prestes.", "1 h a 1 h 30"],
+      limpezaPele: ["Limpieza Facial", "Elimina impurezas, desobstruye los poros y devuelve la luminosidad a la piel.", "1 h 30"],
+      microagulhamento: ["Microagujas", "Estimula el colágeno y mejora la textura, las marcas y las manchas.", "1 h"],
+      hydraGloss: ["Hydra Gloss", "Hidratación profunda con efecto glow y aspecto saludable.", "1 h"],
+      drenagem: ["Drenaje Linfático", "Reduce la hinchazón y aporta una sensación inmediata de ligereza.", "1 h"],
+      modeladora: ["Masaje Modelador", "Movimientos firmes que ayudan a modelar la silueta.", "1 h"],
+      bambuterapia: ["Bambuterapia", "Masaje con bambúes que relaja, modela y revitaliza.", "1 h"],
+      depilacao: ["Depilación con Cera", "Piel suave por más tiempo, con una técnica cuidadosa.", "desde 20 min"],
+    },
+    services: {
+      title: "Menú de servicios",
+      text: "Elige una categoría o busca por nombre. Al tocar Reservar, armas tu pedido en segundos.",
+      searchPlaceholder: "Buscar: mechas, gel, pestañas…",
+      searchLabel: "Buscar servicio",
+      clear: "Borrar búsqueda",
+      tabsLabel: "Categorías de servicios",
+      found: (n, q) => `${n} ${n === 1 ? "servicio encontrado" : "servicios encontrados"} para “${q}”`,
+      notFound: (q) => `No encontramos “${q}” en el menú.`,
+      notFoundText: "Habla con el equipo: muchos servicios se personalizan en el momento.",
+      ask: "Preguntar por WhatsApp",
+      footnote: "Precios a consultar. El tiempo promedio puede variar según el largo, el volumen y el historial del cabello.",
+      book: "Reservar",
+      bookAria: (name) => `Reservar ${name}`,
+    },
+    ba: { before: "Antes", after: "Después", caption: "Mechas Morena Iluminada", hint: "Desliza para comparar", aria: "Comparar antes y después. Usa las flechas para mover." },
+    transform: {
+      title: "Transformaciones reales",
+      text: "Cada resultado empieza con una conversación sobre tu cabello, tu rutina y lo que quieres ver en el espejo.",
+      case: [["Técnica", "Mechas Morena Iluminada"], ["Tratamiento", "Reconstrucción + Spa Capilar"], ["Tiempo en el studio", "Unas 5 horas"], ["Mantenimiento", "Cada 3 a 4 meses"]],
+      cta: "Quiero este resultado",
+    },
+    instagram: { tagline: "Transformaciones, detrás de escena y horarios libres de la semana.", follow: "Seguir en Instagram", view: "Ver en Instagram ↗", reel: "Reel", post: "Foto" },
+    quiz: {
+      title: "Descubre tu Protocolo Euphoria",
+      text: "Responde dos preguntas rápidas y recibe la recomendación ideal para ti, lista para reservar.",
+      time: "Toma menos de 30 segundos.",
+      question: (n) => `Pregunta ${n} de 2`,
+      result: "Tu resultado",
+      restart: "Empezar de nuevo",
+      back: "Volver",
+      q1: "¿Qué te gustaría transformar hoy?",
+      q2: "¿Qué resultado sueñas?",
+      areas: { cabelo: ["Cabello", "Color, corte y brillo"], unhas: ["Uñas", "Manos y pies impecables"], olhar: ["Mirada", "Cejas y pestañas"], pele: ["Piel & cuerpo", "Facial y corporal"] },
+      goals: { renovar: ["Una transformación notable", "Quiero un cambio real"], cuidar: ["Cuidar y recuperar", "La salud primero"], evento: ["Brillar en un evento", "Tengo fecha marcada"], relaxar: ["Un momento para mí", "Pausa y bienestar"] },
+      ideal: "El protocolo ideal para ti",
+      book: "Reservar mi protocolo",
+      redo: "Hacer el quiz de nuevo",
+      recs: {
+        cabelo: {
+          renovar: ["Iluminación a medida que abre el rostro y logra ese efecto “wow” con aspecto natural. Terminamos con un tratamiento para asegurar brillo y salud.", "4 a 6 h"],
+          cuidar: ["Devuelve fuerza, suavidad y resistencia al cabello debilitado. Es el punto de partida ideal para un cronograma capilar hecho para ti.", "1 h 30"],
+          evento: ["Volumen, movimiento y brillo de salón para que llegues deslumbrante. ¿Algo aún más especial? Pregunta por nuestros peinados.", "50 min"],
+          relaxar: ["Un ritual de pausa: exfoliación del cuero cabelludo, mascarilla nutritiva y masaje relajante. Sales liviana y con el cabello radiante.", "1 h 30"],
+        },
+        unhas: {
+          renovar: ["Uñas largas, resistentes y con una forma pensada para tus manos. Elegancia que dura semanas.", "2 h 30"],
+          cuidar: ["Cutículas cuidadas, hidratación y esmaltado impecable para manos y pies siempre bien cuidados.", "1 h 45"],
+          evento: ["Brillo intenso y acabado perfecto que no se descascara. Ideal para fotos, fiestas y viajes.", "1 h"],
+          relaxar: ["Exfoliación, hidratación y masaje para pies suaves y una sensación inmediata de ligereza.", "1 h"],
+        },
+        olhar: {
+          renovar: ["Mirada marcada desde que te despiertas, con pestañas aplicadas una a una para un efecto sofisticado.", "2 h"],
+          cuidar: ["Mapeo facial para un diseño que armoniza con tus rasgos, sin perder la naturalidad.", "40 min"],
+          evento: ["Cejas alineadas y con efecto relleno que enmarcan la mirada en cualquier foto.", "1 h"],
+          relaxar: ["Un combo de autocuidado: mirada armonizada y piel limpia y luminosa en la misma visita.", "2 h 10"],
+        },
+        pele: {
+          renovar: ["Estimula la producción de colágeno y mejora la textura, las marcas y las manchas para una piel visiblemente renovada.", "1 h"],
+          cuidar: ["Elimina impurezas, desobstruye los poros y devuelve la luminosidad. El primer paso de toda rutina de piel.", "1 h 30"],
+          evento: ["Hidratación profunda con efecto glow para una piel luminosa en el gran día.", "1 h"],
+          relaxar: ["Movimientos suaves que reducen la hinchazón y aportan ligereza inmediata. Combínalo con bambuterapia para un momento completo.", "1 h"],
+        },
+      },
+    },
+    experience: {
+      title: "Más que un salón, una experiencia",
+      text: "Desde el primer hola por WhatsApp hasta el último retoque frente al espejo, cada etapa está pensada para que te sientas cuidada, escuchada y segura.",
+      features: [
+        ["Atención exclusiva", "Con cita previa y atención total. Tu horario es solo tuyo."],
+        ["Productos de alto nivel", "Líneas profesionales elegidas para resultados bellos y saludables."],
+        ["Ambiente acogedor", "Un refugio en el centro de Foz para desacelerar y cuidarte."],
+        ["Cuidado e higiene", "Materiales higienizados y protocolos rigurosos en cada atención."],
+      ],
+    },
+    reviews: {
+      title: "Reseñas en Google",
+      ratingAria: "Calificación 5.0 de 5 en Google",
+      ratingText: "Calificación máxima en Google, según las reseñas verificadas de nuestras clientas en Foz do Iguaçu.",
+      seeAll: "Ver todas las reseñas en Google",
+      rate: "Calificar el Studio en Google",
+      starsAria: "5 de 5 estrellas",
+      about: { williams: "Atendida por Williams", rosanna: "Atendida por Rosanna", thalita: "Atendida por Thalita", espaco: "Confort del espacio" },
+      original: "Reseña original en portugués",
+    },
+    space: {
+      title: "Nuestro espacio",
+      text: "Un studio amplio, climatizado y diseñado al detalle para recibirte con confort y elegancia, en el corazón de Foz do Iguaçu.",
+      prev: "Foto anterior",
+      next: "Foto siguiente",
+      detailAlt: "Detalle del estante con productos Joico, Keune y L’Oréal",
+      cards: [
+        ["Recepción & Bienvenida", "Recepción de autor con una atmósfera acogedora desde el primer instante.", "Recepción de Euphoria con mostrador rosado, panel de listones iluminado y neón Euphoria"],
+        ["Estaciones de Atención & Confort", "Amplitud, climatización y sillones diseñados para tu máximo confort.", "Salón amplio con sillones capitoné blancos y pared iluminada"],
+        ["Camerino & Producción", "Tocadores completos con iluminación técnica de precisión para maquillaje y mirada.", "Camerino con tocador rosado, luz en arco y sillón de atención"],
+        ["Estructura Integrada de Hair & Spa", "Un espacio moderno que une tecnología capilar, colorimetría y bienestar.", "Estaciones de atención con sillones, tocadores e iluminación"],
+        ["Lounge de Espera & Alto Rendimiento", "Cada detalle pensado para que te relajes mientras cuidamos tu belleza con líneas internacionales como Joico, Keune y L’Oréal.", "Lounge de espera con sofá de terciopelo rosado"],
+      ],
+    },
+    team: {
+      title: "Nuestro equipo",
+      text: "Conoce a quienes están detrás de cada transformación en Euphoria. Elige quién te va a atender y reserva directamente.",
+      founderTitle: "Fundadora & Dirección • Beauty Artist",
+      founderBio: "Al frente de la dirección y curaduría de Euphoria Studio de Beleza, Janaina Prestes ideó cada detalle del espacio para ofrecer una experiencia acogedora y de alto nivel, además de firmar producciones exclusivas de maquillaje para momentos especiales.",
+      whatDoes: "Qué hace",
+      bookWith: (n) => `Reservar con ${n}`,
+      instagramOf: (n, h) => `Instagram de ${n} (@${h})`,
+      photoOf: (n) => `Foto de ${n}`,
+      pros: {
+        williams: {
+          title: "Hair Stylist • Colorimetría & Visagismo",
+          clear: "Peluquero & Colorimetría",
+          services: "Mechas, Rubios, Colorimetría, Cortes con Visagismo, Tratamientos y Alisado",
+          bio: "Con 25 años de experiencia, Williams es especialista en colorimetría, mechas personalizadas, corrección de color y cortes con visagismo. Su atención une diagnóstico preciso, técnicas avanzadas y tratamientos capilares, logrando transformaciones sofisticadas que valoran tu identidad.",
+        },
+        rosanna: {
+          title: "Nail Designer • Manicura, Pedicura & Estética",
+          clear: "Manicura, Pedicura & Estética",
+          services: "Cutículas, Esmaltado, Uñas en Gel, Spa de Pies y Depilación",
+          bio: "Con más de 20 años de trayectoria, Rosanna ofrece un cuidado completo con cutículas, manicura, pedicura, uñas en gel, spa de pies y depilación, garantizando siempre un acabado impecable, duradero y elegante.",
+        },
+        thalita: {
+          title: "Lash & Brow Designer • Especialista en la Mirada",
+          clear: "Cejas & Pestañas",
+          services: "Diseño de Cejas, Henna, Depilación con Hilo y Extensión de Pestañas",
+          bio: "Especialista en realzar la belleza natural de la mirada, Thalita domina técnicas de diseño de cejas, incluida la aplicación de henna y la depilación con hilo, además de extensión de pestañas, logrando resultados delicados, armónicos y sofisticados.",
+        },
+      },
+    },
+    booking: {
+      title: "Reserva rápida",
+      text: "Arma tu pedido en pocos toques. El equipo confirma el horario contigo por WhatsApp.",
+      hours: "Martes a sábado, desde las 8 h",
+      steps: ["Tu nombre", "Elige al profesional", "Procedimientos deseados", "Horario preferido"],
+      optional: "opcional",
+      namePlaceholder: "¿Cómo te llamas?",
+      nameLabel: "Tu nombre",
+      nameError: "Escribe tu nombre para que el equipo sepa con quién habla.",
+      proHint: "Opcional: si lo prefieres, la recepción te indica el especialista ideal para tus procedimientos.",
+      servicesHelp: "Elige la categoría y toca todos los procedimientos que quieras.",
+      selected: "Seleccionados:",
+      remove: (s) => `Quitar ${s}`,
+      servicesError: "Elige al menos un procedimiento.",
+      makeupTitle: "El maquillaje es una atención exclusiva",
+      makeupText: "Las producciones de maquillaje las firma nuestra fundadora, Janaina Prestes.",
+      makeupSelect: "Reservar maquillaje con Janaina",
+      makeupSelected: "Janaina seleccionada",
+      makeupLabel: "Janaina Prestes (Maquillaje)",
+      shifts: { manha: ["Mañana", "8 a 12 h"], tarde: ["Tarde", "12 a 18 h"], flexivel: ["Flexible", "Cualquier horario"] },
+      whenLabel: "¿Tienes algún día u horario específico en mente?",
+      whenPlaceholder: "Ej.: viernes a las 14 h",
+      whenIdeas: ["Lo antes posible", "Viernes a las 14 h", "Sábado por la mañana"],
+      summary: "Tu pedido",
+      progress: (n) => `${n} de 4 pasos`,
+      previewTitle: "Vista previa del mensaje en WhatsApp",
+      now: "ahora",
+      phName: "[tu nombre]",
+      phServices: "[elige al menos uno]",
+      missing: (items) => `Para enviar, falta: ${items.join(" y ")}.`,
+      missingName: "tu nombre",
+      missingServices: "al menos un procedimiento",
+      send: "Enviar Solicitud por WhatsApp",
+      note: "WhatsApp se abre con el mensaje listo. Solo toca enviar.",
+      reset: "Borrar pedido",
+      proFallback: "A definir con la recepción",
+      suggested: "sugerencia",
+      msg: {
+        intro: (name) => `¡Hola, equipo de Euphoria Studio de Beleza! ✨ Mi nombre es *${name}*. Me gustaría consultar la disponibilidad para reservar:`,
+        services: "• Procedimiento(s): ",
+        pro: "• Profesional: ",
+        shift: "• Preferencia de horario: ",
+        when: "• Día/Horario específico: ",
+        outro: "¡Quedo a la espera de su respuesta para confirmar!",
+      },
+    },
+    contact: {
+      title: "Dónde estamos",
+      text: "En el Centro de Foz do Iguaçu, frente a Looby. Fácil de llegar y con todo el cariño esperándote.",
+      address: "Dirección",
+      reference: "Frente a Looby",
+      hours: "Horario",
+      days: "Martes a sábado",
+      closedDays: "Domingo y lunes",
+      closed: "Cerrado",
+      range: "8 a 18 h",
+      openNow: "Abierto ahora",
+      closedNow: "Cerrado ahora",
+      whatsapp: "WhatsApp",
+      route: "Cómo llegar con Google Maps",
+      chat: "Escribir por WhatsApp",
+      mapAria: "Abrir la ubicación del studio en Google Maps",
+      mapSub: "Frente a Looby, Centro",
+      openMaps: "Abrir en Maps",
+    },
+    footer: {
+      tagline: "Tu refugio de belleza y bienestar en el centro de Foz do Iguaçu.",
+      nav: "Navega",
+      visit: "Visítanos",
+      hours: "Martes a sábado, desde las 8 h",
+      book: "Reservar Turno",
+      rights: "Todos los derechos reservados.",
+      made: "Hecho con cariño en Foz do Iguaçu.",
+    },
+    fab: { label: "Escríbenos por WhatsApp", aria: "Conversar por WhatsApp" },
+    wa: {
+      hello: "¡Hola! Vengo del sitio web de Euphoria Studio de Beleza y me gustaría reservar un turno.",
+      ask: (q) => `¡Hola! Vengo del sitio web de Euphoria Studio de Beleza y me gustaría saber si hacen: ${q}.`,
+    },
+  },
+
+  /* =============================== ENGLISH =============================== */
+  en: {
+    meta: { title: "Euphoria Studio de Beleza | Foz do Iguaçu" },
+    langLabel: "Language",
+    nav: { servicos: "Services", transformacoes: "Transformations", quiz: "Your ritual", avaliacoes: "Reviews", equipe: "Team", contato: "Contact" },
+    header: { book: "Book Appointment", bookShort: "Book", openMenu: "Open menu", closeMenu: "Close menu", menu: "Menu", home: "Euphoria Studio de Beleza, back to top" },
+    hero: {
+      badge: "Foz do Iguaçu • Exclusive Experience",
+      line1: "Your beauty,",
+      line2: "in a state of euphoria.",
+      text: "Hair, nails, brows and skin cared for with expert technique, premium products and the kind of warmth that makes you want to come back. Your beauty retreat in downtown Foz do Iguaçu.",
+      book: "Book Your Experience",
+      explore: "Explore Services",
+      hours: "Tuesday to Saturday, from 8 am",
+      location: "Downtown Foz do Iguaçu",
+    },
+    categories: { cabelos: "Hair & Highlights", tratamentos: "Treatments & Hair Spa", unhas: "Nails", estetica: "Brows & Aesthetics" },
+    tags: { desejado: "Most wanted", assinatura: "House signature", queridinho: "Fan favorite", pedido: "Most booked" },
+    serviceList: {
+      mechas: ["Brunette Highlights", "Custom brightening that enhances your natural tone, with luminous strands and a sophisticated finish.", "4–6 h"],
+      balayage: ["Highlights & Balayage", "A soft, natural gradient designed to grow out gracefully with less upkeep.", "4–5 h"],
+      coloracao: ["Custom Hair Color", "Even color, intense shine and grey coverage with professional products.", "2 h"],
+      matizacao: ["Toning & Glossing", "Neutralizes unwanted tones and refreshes your highlights.", "1 h"],
+      corte: ["Women’s Haircut", "A cut designed around your face shape, routine and style.", "1 h"],
+      escova: ["Blowout", "Movement, volume and shine with a salon finish.", "50 min"],
+      penteado: ["Event Hairstyling", "Elegant styles for brides, bridesmaids, graduations and special occasions.", "1 h 30"],
+      spa: ["Euphoria Hair Spa", "A ritual with scalp exfoliation, a nourishing mask and a relaxing massage.", "1 h 30"],
+      hidratacao: ["Deep Hydration", "Restores moisture and instant softness to dry hair.", "1 h"],
+      reconstrucao: ["Hair Reconstruction", "Restores strength and resilience to hair damaged by chemicals or heat.", "1 h 30"],
+      cronograma: ["Hair Care Plan", "A personalized plan of hydration, nourishment and reconstruction over several weeks.", "1 h per session"],
+      botox: ["Hair Botox", "Reduces frizz, seals the cuticles and delivers mirror-like shine.", "2 h"],
+      progressiva: ["Hair Straightening", "Smooth, aligned hair with a natural look and a silky feel.", "3–4 h"],
+      manicure: ["Manicure", "Careful cuticle work and flawless polish.", "45 min"],
+      pedicure: ["Pedicure", "Well-groomed feet with a delicate, long-lasting finish.", "1 h"],
+      gel: ["Gel Polish", "Intense shine that lasts for weeks without chipping.", "1 h"],
+      alongamentoGel: ["Gel Nail Extensions", "Long, strong nails shaped just for you.", "2 h 30"],
+      manutencao: ["Gel Extension Refill", "Rebalances growth and keeps your extensions flawless.", "1 h 30"],
+      spaPes: ["Foot Spa", "Exfoliation, hydration and massage for soft, renewed feet.", "1 h"],
+      designSobrancelhas: ["Brow Design", "Facial mapping for harmonious, natural-looking brows.", "40 min"],
+      henna: ["Henna Brows", "Fills gaps and defines your brows with a natural, long-lasting finish.", "50 min"],
+      linhaEgipcia: ["Threading", "Precise hair removal with thread, ideal for sensitive skin.", "30 min"],
+      browLamination: ["Brow Lamination", "Aligned hairs, a fuller effect and defined brows.", "1 h"],
+      cilios: ["Lash Extensions", "A striking, sophisticated look with lashes applied one by one.", "2 h"],
+      maquiagem: ["Makeup", "Exclusive looks for events, photo shoots and special moments, created by Janaina Prestes.", "1 h–1 h 30"],
+      limpezaPele: ["Deep Cleansing Facial", "Removes impurities, unclogs pores and restores your skin’s glow.", "1 h 30"],
+      microagulhamento: ["Microneedling", "Stimulates collagen and improves texture, scars and dark spots.", "1 h"],
+      hydraGloss: ["Hydra Gloss", "Deep hydration with a healthy, glowing effect.", "1 h"],
+      drenagem: ["Lymphatic Drainage", "Reduces swelling and brings an immediate feeling of lightness.", "1 h"],
+      modeladora: ["Body Sculpting Massage", "Firm movements that help sculpt your silhouette.", "1 h"],
+      bambuterapia: ["Bamboo Massage", "A bamboo massage that relaxes, sculpts and revitalizes.", "1 h"],
+      depilacao: ["Waxing", "Smooth skin for longer, with a careful technique.", "from 20 min"],
+    },
+    services: {
+      title: "Service menu",
+      text: "Pick a category or search by name. Tap Book to put together your request in seconds.",
+      searchPlaceholder: "Search: highlights, gel, lashes…",
+      searchLabel: "Search services",
+      clear: "Clear search",
+      tabsLabel: "Service categories",
+      found: (n, q) => `${n} ${n === 1 ? "service found" : "services found"} for “${q}”`,
+      notFound: (q) => `We couldn’t find “${q}” on the menu.`,
+      notFoundText: "Message the team: many services are tailored on the spot.",
+      ask: "Ask on WhatsApp",
+      footnote: "Prices on request. Average times may vary with hair length, volume and history.",
+      book: "Book",
+      bookAria: (name) => `Book ${name}`,
+    },
+    ba: { before: "Before", after: "After", caption: "Brunette Highlights", hint: "Drag to compare", aria: "Compare before and after. Use the arrow keys to move." },
+    transform: {
+      title: "Real transformations",
+      text: "Every result starts with a conversation about your hair, your routine and what you want to see in the mirror.",
+      case: [["Technique", "Brunette Highlights"], ["Treatment", "Reconstruction + Hair Spa"], ["Time in the studio", "About 5 hours"], ["Maintenance", "Every 3 to 4 months"]],
+      cta: "I want this result",
+    },
+    instagram: { tagline: "Transformations, behind the scenes and this week’s open slots.", follow: "Follow on Instagram", view: "View on Instagram ↗", reel: "Reel", post: "Photo" },
+    quiz: {
+      title: "Discover Your Euphoria Ritual",
+      text: "Answer two quick questions and get the ideal recommendation for you, ready to book.",
+      time: "Takes less than 30 seconds.",
+      question: (n) => `Question ${n} of 2`,
+      result: "Your result",
+      restart: "Start over",
+      back: "Back",
+      q1: "What would you like to transform today?",
+      q2: "What result are you dreaming of?",
+      areas: { cabelo: ["Hair", "Color, cut and shine"], unhas: ["Nails", "Flawless hands and feet"], olhar: ["Eyes", "Brows and lashes"], pele: ["Skin & body", "Facial and body care"] },
+      goals: { renovar: ["A striking transformation", "I want a real change"], cuidar: ["Care and repair", "Health comes first"], evento: ["Shine at an event", "I have a date set"], relaxar: ["Some time for me", "Pause and well-being"] },
+      ideal: "Your ideal ritual",
+      book: "Book my ritual",
+      redo: "Take the quiz again",
+      recs: {
+        cabelo: {
+          renovar: ["Custom brightening that lifts your face and delivers that “wow” effect with a natural look. We finish with a treatment for shine and healthy hair.", "4–6 h"],
+          cuidar: ["Restores strength, softness and resilience to weakened hair. The perfect start to a hair care plan made for you.", "1 h 30"],
+          evento: ["Salon-level volume, movement and shine so you arrive looking stunning. Want something extra special? Ask about our event styling.", "50 min"],
+          relaxar: ["A ritual of pause: scalp exfoliation, a nourishing mask and a relaxing massage. You leave feeling light, with radiant hair.", "1 h 30"],
+        },
+        unhas: {
+          renovar: ["Long, strong nails shaped for your hands. Elegance that lasts for weeks.", "2 h 30"],
+          cuidar: ["Careful cuticle work, hydration and flawless polish for hands and feet that always look their best.", "1 h 45"],
+          evento: ["Intense shine and a perfect finish that won’t chip. Ideal for photos, parties and travel.", "1 h"],
+          relaxar: ["Exfoliation, hydration and massage for soft feet and an instant feeling of lightness.", "1 h"],
+        },
+        olhar: {
+          renovar: ["Striking eyes from the moment you wake up, with lashes applied one by one for a sophisticated effect.", "2 h"],
+          cuidar: ["Facial mapping for a design that harmonizes with your features while staying natural.", "40 min"],
+          evento: ["Aligned, fuller-looking brows that frame your eyes in every photo.", "1 h"],
+          relaxar: ["A self-care combo: harmonized brows and clean, glowing skin in the same visit.", "2 h 10"],
+        },
+        pele: {
+          renovar: ["Stimulates collagen and improves texture, scars and dark spots for visibly renewed skin.", "1 h"],
+          cuidar: ["Removes impurities, unclogs pores and restores your glow. The first step of any skincare routine.", "1 h 30"],
+          evento: ["Deep hydration with a glow effect for luminous skin on your big day.", "1 h"],
+          relaxar: ["Gentle movements that reduce swelling and bring instant lightness. Pair it with a bamboo massage for the full experience.", "1 h"],
+        },
+      },
+    },
+    experience: {
+      title: "More than a salon, an experience",
+      text: "From the first hello on WhatsApp to the final touch in the mirror, every step is designed to make you feel cared for, heard and confident.",
+      features: [
+        ["Exclusive service", "By appointment, with full attention. Your time slot is all yours."],
+        ["Premium products", "Professional lines chosen for beautiful, healthy results."],
+        ["Welcoming space", "A retreat in downtown Foz to slow down and take care of yourself."],
+        ["Care and hygiene", "Sanitized tools and strict protocols in every appointment."],
+      ],
+    },
+    reviews: {
+      title: "Google reviews",
+      ratingAria: "Rated 5.0 out of 5 on Google",
+      ratingText: "Top rating on Google, based on verified reviews from our clients in Foz do Iguaçu.",
+      seeAll: "See all reviews on Google",
+      rate: "Review the Studio on Google",
+      starsAria: "5 out of 5 stars",
+      about: { williams: "Styled by Williams", rosanna: "Nails by Rosanna", thalita: "Brows by Thalita", espaco: "Comfort of the space" },
+      original: "Original review in Portuguese",
+    },
+    space: {
+      title: "Our space",
+      text: "A spacious, air-conditioned studio designed down to the last detail to welcome you with comfort and elegance, in the heart of Foz do Iguaçu.",
+      prev: "Previous photo",
+      next: "Next photo",
+      detailAlt: "Close-up of a shelf with Joico, Keune and L’Oréal products",
+      cards: [
+        ["Reception & Welcome", "A signature reception with a welcoming atmosphere from the very first moment.", "Euphoria reception with a pink counter, lit slatted wall and Euphoria neon sign"],
+        ["Styling Stations & Comfort", "Spacious, air-conditioned and fitted with chairs designed for your utmost comfort.", "Spacious salon with off-white tufted chairs and an illuminated wall"],
+        ["Makeup Studio & Styling", "Fully equipped stations with precision lighting for makeup, brows and lashes.", "Makeup station with a pink counter, arc light and styling chair"],
+        ["Integrated Hair & Spa Area", "A modern space that brings together hair technology, color expertise and well-being.", "Styling stations with chairs, counters and lighting"],
+        ["Waiting Lounge & High Performance", "Every detail designed for you to relax while we care for your beauty with international lines such as Joico, Keune and L’Oréal.", "Waiting lounge with a pink velvet sofa"],
+      ],
+    },
+    team: {
+      title: "Our team",
+      text: "Meet the people behind every transformation at Euphoria. Choose who will take care of you and book directly.",
+      founderTitle: "Founder & Director • Beauty Artist",
+      founderBio: "Leading the direction and curation of Euphoria Studio de Beleza, Janaina Prestes designed every detail of the space to offer a welcoming, high-end experience, and she also creates exclusive makeup looks for special moments.",
+      whatDoes: "What they do",
+      bookWith: (n) => `Book with ${n}`,
+      instagramOf: (n, h) => `${n} on Instagram (@${h})`,
+      photoOf: (n) => `Photo of ${n}`,
+      pros: {
+        williams: {
+          title: "Hair Stylist • Color & Face-Shape Cutting",
+          clear: "Hairdresser & Colorist",
+          services: "Highlights, Blondes, Hair Color, Face-Shape Haircuts, Treatments and Straightening",
+          bio: "With 25 years of experience, Williams specializes in color, custom highlights, color correction and face-shape haircuts. His work combines precise diagnosis, advanced techniques and hair treatments, delivering sophisticated transformations that celebrate your identity.",
+        },
+        rosanna: {
+          title: "Nail Designer • Manicure, Pedicure & Beauty",
+          clear: "Manicure, Pedicure & Beauty Care",
+          services: "Cuticle Care, Polish, Gel Extensions, Foot Spa and Waxing",
+          bio: "With over 20 years in the field, Rosanna offers complete care including cuticle work, manicure, pedicure, gel extensions, foot spa and waxing, always with a flawless, long-lasting and elegant finish.",
+        },
+        thalita: {
+          title: "Lash & Brow Designer • Eye Specialist",
+          clear: "Brows & Lashes",
+          services: "Brow Design, Henna, Threading and Lash Extensions",
+          bio: "A specialist in enhancing the natural beauty of the eyes, Thalita masters brow design techniques, including henna and threading, as well as lash extensions, delivering delicate, harmonious and sophisticated results.",
+        },
+      },
+    },
+    booking: {
+      title: "Quick booking",
+      text: "Put together your request in a few taps. The team will confirm your time with you on WhatsApp.",
+      hours: "Tuesday to Saturday, from 8 am",
+      steps: ["Your name", "Choose your professional", "Services you’d like", "Preferred time"],
+      optional: "optional",
+      namePlaceholder: "What should we call you?",
+      nameLabel: "Your name",
+      nameError: "Enter your name so the team knows who they’re talking to.",
+      proHint: "Optional: if you prefer, reception will match you with the right specialist for your services.",
+      servicesHelp: "Pick a category and tap as many services as you like.",
+      selected: "Selected:",
+      remove: (s) => `Remove ${s}`,
+      servicesError: "Choose at least one service.",
+      makeupTitle: "Makeup is an exclusive service",
+      makeupText: "All makeup looks are created by our founder, Janaina Prestes.",
+      makeupSelect: "Book makeup with Janaina",
+      makeupSelected: "Janaina selected",
+      makeupLabel: "Janaina Prestes (Makeup)",
+      shifts: { manha: ["Morning", "8 am–12 pm"], tarde: ["Afternoon", "12–6 pm"], flexivel: ["Flexible", "Any time"] },
+      whenLabel: "Do you have a specific day or time in mind?",
+      whenPlaceholder: "E.g.: Friday at 2 pm",
+      whenIdeas: ["As soon as possible", "Friday at 2 pm", "Saturday morning"],
+      summary: "Your request",
+      progress: (n) => `${n} of 4 steps`,
+      previewTitle: "WhatsApp message preview",
+      now: "now",
+      phName: "[your name]",
+      phServices: "[choose at least one]",
+      missing: (items) => `To send, add: ${items.join(" and ")}.`,
+      missingName: "your name",
+      missingServices: "at least one service",
+      send: "Send Request on WhatsApp",
+      note: "WhatsApp opens with your message ready. Just tap send.",
+      reset: "Clear request",
+      proFallback: "To be confirmed by reception",
+      suggested: "suggested",
+      msg: {
+        intro: (name) => `Hello, Euphoria Studio de Beleza team! ✨ My name is *${name}*. I’d like to check availability to book:`,
+        services: "• Service(s): ",
+        pro: "• Professional: ",
+        shift: "• Preferred time of day: ",
+        when: "• Specific day/time: ",
+        outro: "Looking forward to hearing from you to confirm!",
+      },
+    },
+    contact: {
+      title: "Find us",
+      text: "In downtown Foz do Iguaçu, across from Looby. Easy to reach, with a warm welcome waiting for you.",
+      address: "Address",
+      reference: "Across from Looby",
+      hours: "Opening hours",
+      days: "Tuesday to Saturday",
+      closedDays: "Sunday and Monday",
+      closed: "Closed",
+      range: "8 am–6 pm",
+      openNow: "Open now",
+      closedNow: "Closed now",
+      whatsapp: "WhatsApp",
+      route: "Get Directions on Google Maps",
+      chat: "Message on WhatsApp",
+      mapAria: "Open the studio location on Google Maps",
+      mapSub: "Across from Looby, Downtown",
+      openMaps: "Open in Maps",
+    },
+    footer: {
+      tagline: "Your beauty and well-being retreat in downtown Foz do Iguaçu.",
+      nav: "Explore",
+      visit: "Visit",
+      hours: "Tuesday to Saturday, from 8 am",
+      book: "Book Appointment",
+      rights: "All rights reserved.",
+      made: "Made with care in Foz do Iguaçu.",
+    },
+    fab: { label: "Chat on WhatsApp", aria: "Chat on WhatsApp" },
+    wa: {
+      hello: "Hello! I found you through the Euphoria Studio de Beleza website and I’d like to book an appointment.",
+      ask: (q) => `Hello! I found you through the Euphoria Studio de Beleza website and I’d like to know if you offer: ${q}.`,
+    },
+  },
+};
+
+/* --------------------------------------------------------------------------
+   IDIOMA ATIVO (contexto)
+   -------------------------------------------------------------------------- */
+
+const I18nContext = createContext({ lang: "pt", t: TRANSLATIONS.pt, setLang: () => {} });
+const useI18n = () => useContext(I18nContext);
+
+function detectLang() {
+  try {
+    const saved = localStorage.getItem("euphoria:lang");
+    if (saved && TRANSLATIONS[saved]) return saved;
+  } catch {}
+  const nav = (navigator.language || "pt").slice(0, 2).toLowerCase();
+  return nav === "es" ? "es" : nav === "en" ? "en" : "pt";
+}
+
+function I18nProvider({ children }) {
+  const [lang, setLang] = useState(detectLang);
+  useEffect(() => {
+    document.documentElement.lang = LANGS.find((l) => l.id === lang).html;
+    document.title = TRANSLATIONS[lang].meta.title;
+    try {
+      localStorage.setItem("euphoria:lang", lang);
+    } catch {}
+  }, [lang]);
+  const value = useMemo(() => ({ lang, setLang, t: TRANSLATIONS[lang] }), [lang]);
+  return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
+}
+
+// Mensagens diretas de WhatsApp no idioma ativo (com tag de idioma para a recepção).
+const waHello = (lang) => waUrl(langTag[lang] + TRANSLATIONS[lang].wa.hello);
+const waAsk = (lang, q) => waUrl(langTag[lang] + TRANSLATIONS[lang].wa.ask(q));
+const serviceName = (lang, id) => TRANSLATIONS[lang].serviceList[id]?.[0] || id;
+// Em ES/EN, inclui o nome em português entre parênteses para a recepção.
+const serviceNameForMessage = (lang, id) => {
+  const local = serviceName(lang, id);
+  const pt = serviceName("pt", id);
+  return lang === "pt" || local === pt ? local : `${local} (${pt})`;
+};
+
+/* --------------------------------------------------------------------------
+   ÍCONES (desenhos do Lucide, embutidos para funcionar sem dependências)
+   -------------------------------------------------------------------------- */
+
+const ICONS = {
+  calendar: '<rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/>',
+  sparkles: '<path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/>',
+  scissors: '<circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/>',
+  droplets: '<path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/>',
+  hand: '<path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/>',
+  eye: '<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>',
+  search: '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
+  clock: '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+  mapPin: '<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>',
+  instagram: '<rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/>',
+  star: '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>',
+  arrowUpRight: '<path d="M7 7h10v10"/><path d="M7 17 17 7"/>',
+  chevronLeft: '<path d="m15 18-6-6 6-6"/>',
+  chevronRight: '<path d="m9 18 6-6-6-6"/>',
+  menu: '<path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h10"/>',
+  x: '<path d="M18 6 6 18"/><path d="m6 6 12 12"/>',
+  navigation: '<polygon points="3 11 22 2 13 21 11 13 3 11"/>',
+  heart: '<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>',
+  check: '<path d="M20 6 9 17l-5-5"/>',
+  rotateCcw: '<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/>',
+  gem: '<path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/>',
+  leaf: '<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>',
+  coffee: '<path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><path d="M6 2v2"/><path d="M10 2v2"/><path d="M14 2v2"/>',
+  shieldCheck: '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/>',
+  sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>',
+  sunset: '<path d="M12 10V2"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="m19.07 10.93-1.41 1.41"/><path d="M22 22H2"/><path d="m16 6-4 4-4-4"/><path d="M16 18a4 4 0 0 0-8 0"/>',
+  user: '<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>',
+  globe: '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>',
+  chevronDown: '<path d="m6 9 6 6 6-6"/>',
+  arrowLeft: '<path d="m12 19-7-7 7-7"/><path d="M19 12H5"/>',
+  arrowRight: '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>',
+  clapperboard: '<path d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3Z"/><path d="m6.2 5.3 3.1 3.9"/><path d="m12.4 3.4 3.1 4"/><path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/>',
+  image: '<rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>',
+  phone: '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>',
+  camera: '<path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/>',
+};
+
+function Icon({ name, size = 18, className = "", strokeWidth = 1.6, fill = "none" }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill={fill}
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={`shrink-0 ${className}`}
+      aria-hidden="true"
+      dangerouslySetInnerHTML={{ __html: ICONS[name] }}
+    />
+  );
+}
+
+function WhatsIcon({ size = 20, className = "" }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={`shrink-0 ${className}`} aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+    </svg>
+  );
+}
+
+function GoogleG({ size = 20 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+      <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+      <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" />
+      <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+    </svg>
+  );
+}
+
+
+/* --------------------------------------------------------------------------
+   LOGO (imagem real + fallback desenhado fiel à marca)
+   -------------------------------------------------------------------------- */
+
+function MarkFallback({ className = "", fontSize = "1.9rem" }) {
+  return (
+    <span className={`relative inline-flex items-center justify-center ${className}`} aria-hidden="true">
+      <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full">
+        <defs>
+          <linearGradient id="mf-g" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stopColor="#f3d2cb" />
+            <stop offset=".5" stopColor="#bf7e84" />
+            <stop offset="1" stopColor="#8f5a60" />
+          </linearGradient>
+        </defs>
+        <path d="M80 76 A 38 38 0 1 0 22 74" fill="none" stroke="url(#mf-g)" strokeWidth="1.8" strokeLinecap="round" />
+      </svg>
+      <span className="text-metal relative font-script leading-none" style={{ fontSize, transform: "translateY(6%)" }}>E</span>
+    </span>
+  );
+}
+
+function LogoMark({ className = "h-10 w-10" }) {
+  const [failed, setFailed] = useState(!LOGO_MARK);
+  if (failed) return <MarkFallback className={className} />;
+  return <img src={LOGO_MARK} alt="" width="220" height="220" draggable="false" className={`object-contain ${className}`} onError={() => setFailed(true)} />;
+}
+
+function Wordmark() {
+  return (
+    <span className="flex flex-col leading-none">
+      <span className="text-metal font-display text-[1.12rem] font-semibold tracking-[0.2em] sm:text-[1.2rem]">EUPHORIA</span>
+      <span className="mt-1 text-[0.6rem] font-light tracking-[0.3em] text-white/60">studio de beleza</span>
+    </span>
+  );
+}
+
+function LogoFull({ className = "" }) {
+  const [failed, setFailed] = useState(!LOGO_FULL);
+  if (failed) {
+    return (
+      <span className={`flex flex-col items-center ${className}`}>
+        <MarkFallback className="h-28 w-28" fontSize="5rem" />
+        <span className="text-metal mt-3 font-display text-4xl font-medium tracking-[0.14em]">EUPHORIA</span>
+        <span className="mt-2 text-sm font-light tracking-[0.28em] text-malva">studio de beleza</span>
+      </span>
+    );
+  }
+  return <img src={LOGO_FULL} alt="Euphoria Studio de Beleza" width="640" height="506" draggable="false" className={`h-auto ${className}`} onError={() => setFailed(true)} />;
+}
+
+/* --------------------------------------------------------------------------
+   HOOKS
+   -------------------------------------------------------------------------- */
+
+function useScrolledPast(threshold) {
+  const [past, setPast] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setPast(window.scrollY > threshold);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [threshold]);
+  return past;
+}
+
+function useInViewOnce(threshold = 0.35) {
+  const ref = useRef(null);
+  const [seen, setSeen] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (!("IntersectionObserver" in window)) {
+      setSeen(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setSeen(true);
+          io.disconnect();
+        }
+      },
+      { threshold }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [threshold]);
+  return [ref, seen];
+}
+
+// Aberto agora? Terça a sábado, 9h às 18h, horário de Brasília.
+
+/* --------------------------------------------------------------------------
+   HERO
+   -------------------------------------------------------------------------- */
+
+// O arco com brilho ecoa o círculo da logo; ele "se desenha" uma única vez ao abrir a página.
+function SignatureArc({ id, className = "" }) {
+  return (
+    <svg viewBox="0 0 1000 1000" className={`pointer-events-none ${className}`} aria-hidden="true">
+      <defs>
+        <linearGradient id={id} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#f6d9d1" />
+          <stop offset=".45" stopColor="#bf7e84" />
+          <stop offset="1" stopColor="#795f68" stopOpacity=".2" />
+        </linearGradient>
+        <radialGradient id={`${id}-flare`}>
+          <stop offset="0" stopColor="#ffffff" />
+          <stop offset=".25" stopColor="#f6d0c4" stopOpacity=".85" />
+          <stop offset="1" stopColor="#bf7e84" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+      <circle className="arc-draw" cx="500" cy="500" r="470" fill="none" stroke={`url(#${id})`} strokeWidth="1.6" strokeLinecap="round" pathLength="1" transform="rotate(150 500 500)" />
+      <g transform="translate(168 168)">
+        <g className="arc-flare">
+          <circle r="40" fill={`url(#${id}-flare)`} />
+          <path d="M0 -48 L2.6 -2.6 L48 0 L2.6 2.6 L0 48 L-2.6 2.6 L-48 0 L-2.6 -2.6 Z" fill="#fff" opacity=".9" />
+        </g>
+      </g>
+    </svg>
+  );
+}
+
+
+/* --------------------------------------------------------------------------
+   ANTES & DEPOIS
+   -------------------------------------------------------------------------- */
+
+function mulberry32(a) {
+  return function () {
+    a |= 0;
+    a = (a + 0x6d2b79f5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+// Arte ilustrativa de fios (troque por fotos reais em CONFIG.beforeImage / afterImage).
+function HairArt({ variant = "after", seed = 1 }) {
+  const after = variant === "after";
+  const uid = useMemo(() => `hair-${variant}-${seed}-${Math.random().toString(36).slice(2, 7)}`, [variant, seed]);
+
+  const { strands, flyaways } = useMemo(() => {
+    const r = mulberry32(after ? 11 + seed : 5 + seed);
+    const n = after ? 92 : 84;
+    const strands = [];
+    for (let i = 0; i < n; i++) {
+      const x0 = -40 + (i / n) * 480 + (r() - 0.5) * 8;
+      const amp = after ? 16 + r() * 8 : 5 + r() * 9;
+      const freq = after ? 0.011 + r() * 0.002 : 0.018 + r() * 0.03;
+      const phase = after ? i * 0.045 : r() * Math.PI * 2;
+      let d = "";
+      for (let y = -20; y <= 520; y += 12) {
+        const k = 0.35 + y / 520;
+        let x = x0 + Math.sin(y * freq + phase) * amp * k;
+        if (!after) x += (r() - 0.5) * 9 * k;
+        d += `${y === -20 ? "M" : "L"}${x.toFixed(1)} ${y} `;
+      }
+      strands.push({ d, w: after ? 1.2 + r() * 2.4 : 0.8 + r() * 2, o: after ? 0.55 + r() * 0.45 : 0.35 + r() * 0.5, g: Math.floor(r() * 3) });
+    }
+    const flyaways = [];
+    if (!after) {
+      for (let i = 0; i < 34; i++) {
+        const x = r() * 400;
+        const y = 40 + r() * 420;
+        flyaways.push(`M${x.toFixed(1)} ${y.toFixed(1)} q ${((r() - 0.5) * 40).toFixed(1)} ${(-10 - r() * 30).toFixed(1)} ${((r() - 0.5) * 60).toFixed(1)} ${(-20 - r() * 40).toFixed(1)}`);
+      }
+    }
+    return { strands, flyaways };
+  }, [after, seed]);
+
+  const palette = after
+    ? [
+        ["#3a221f", "#8d5b4c", "#efcdb8"],
+        ["#2e1b1a", "#a56f60", "#f6dccb"],
+        ["#3d2622", "#c08a78", "#e9bfa8"],
+      ]
+    : [
+        ["#3b302a", "#5a4a3f", "#6f5d4f"],
+        ["#33291f", "#493b31", "#5f5045"],
+        ["#40342b", "#5e4d40", "#7a6655"],
+      ];
+
+  return (
+    <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 h-full w-full" aria-hidden="true">
+      <defs>
+        <linearGradient id={`${uid}-bg`} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor={after ? "#2b1a22" : "#262220"} />
+          <stop offset="1" stopColor={after ? "#1a1214" : "#1c1a19"} />
+        </linearGradient>
+        {palette.map((p, i) => (
+          <linearGradient key={i} id={`${uid}-g${i}`} gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="500">
+            <stop offset="0" stopColor={p[0]} />
+            <stop offset=".5" stopColor={p[1]} />
+            <stop offset="1" stopColor={p[2]} />
+          </linearGradient>
+        ))}
+        <linearGradient id={`${uid}-shine`} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#fff2ec" stopOpacity="0" />
+          <stop offset=".5" stopColor="#fff2ec" stopOpacity=".5" />
+          <stop offset="1" stopColor="#fff2ec" stopOpacity="0" />
+        </linearGradient>
+      </defs>
+      <rect width="400" height="500" fill={`url(#${uid}-bg)`} />
+      {after && <ellipse cx="260" cy="120" rx="240" ry="180" fill="#bf7e84" opacity=".16" />}
+      <g fill="none" strokeLinecap="round">
+        {strands.map((s, i) => (
+          <path key={i} d={s.d} stroke={`url(#${uid}-g${s.g})`} strokeWidth={s.w} opacity={s.o} />
+        ))}
+        {flyaways.map((d, i) => (
+          <path key={`f${i}`} d={d} stroke="#7a6655" strokeWidth=".8" opacity=".55" />
+        ))}
+      </g>
+      {after ? (
+        <g style={{ mixBlendMode: "screen" }}>
+          <rect x="-60" y="150" width="520" height="70" fill={`url(#${uid}-shine)`} transform="rotate(-7 200 185)" opacity=".75" />
+          <rect x="-60" y="330" width="520" height="40" fill={`url(#${uid}-shine)`} transform="rotate(-5 200 350)" opacity=".4" />
+        </g>
+      ) : (
+        <rect width="400" height="500" fill="#151312" opacity=".28" />
+      )}
+    </svg>
+  );
+}
+
+
+const BURST = Array.from({ length: 14 }, (_, i) => {
+  const a = (i / 14) * Math.PI * 2;
+  const r = 80 + (i % 3) * 30;
+  return [Math.cos(a) * r, Math.sin(a) * r];
+});
+
+
+const spotlight = (e) => {
+  const r = e.currentTarget.getBoundingClientRect();
+  e.currentTarget.style.setProperty("--mx", `${e.clientX - r.left}px`);
+  e.currentTarget.style.setProperty("--my", `${e.clientY - r.top}px`);
+};
+
+const PORTRAIT_TONES = [
+  "radial-gradient(90% 70% at 30% 20%, #bf7e84 0%, #462536 55%, #1e1e1e 100%)",
+  "radial-gradient(90% 70% at 70% 15%, #795f68 0%, #462536 52%, #1e1e1e 100%)",
+  "radial-gradient(100% 80% at 50% 0%, #a96a71 0%, #462536 45%, #2e2e2e 100%)",
+  "linear-gradient(160deg, #462536 0%, #2e2e2e 55%, #795f68 140%)",
+];
+
+
+/* --------------------------------------------------------------------------
+   PONTE ENTRE OS BOTÕES "AGENDAR" E O AGENDADOR
+   -------------------------------------------------------------------------- */
+
+const BOOKING_EVENT = "euphoria:agendar";
+function openBooking(detail = {}) {
+  window.dispatchEvent(new CustomEvent(BOOKING_EVENT, { detail }));
+  setTimeout(() => {
+    const el = document.getElementById("agendar");
+    if (!el) return;
+    const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+  }, 60);
+}
+const bookingLink = (detail) => ({
+  href: "#agendar",
+  onClick: (e) => {
+    e.preventDefault();
+    openBooking(detail);
+  },
+});
+
+function Stars({ size = 16 }) {
+  const { t } = useI18n();
+  return (
+    <span className="flex items-center gap-0.5 text-[#FBBC04]" aria-label={t.reviews.starsAria} role="img">
+      {[0, 1, 2, 3, 4].map((i) => (
+        <Icon key={i} name="star" size={size} fill="currentColor" strokeWidth={1} />
+      ))}
+    </span>
+  );
+}
+
+// Aberto agora? Usa HOURS (horário de Brasília).
+function useOpenStatus() {
+  const calc = () => {
+    try {
+      const parts = new Intl.DateTimeFormat("en-US", { timeZone: "America/Sao_Paulo", weekday: "short", hour: "numeric", minute: "numeric", hourCycle: "h23" }).formatToParts(new Date());
+      const get = (k) => parts.find((p) => p.type === k)?.value;
+      const h = Number(get("hour")) + Number(get("minute")) / 60;
+      return HOURS.days.includes(get("weekday")) && h >= HOURS.open && h < HOURS.close;
+    } catch {
+      return null;
+    }
+  };
+  const [open, setOpen] = useState(calc);
+  useEffect(() => {
+    const id = setInterval(() => setOpen(calc()), 60000);
+    return () => clearInterval(id);
+  }, []);
+  return open;
+}
+
+/* --------------------------------------------------------------------------
+   SELETOR DE IDIOMA
+   -------------------------------------------------------------------------- */
+
+function LangSwitcher({ className = "" }) {
+  const { lang, setLang, t } = useI18n();
+  const idx = LANGS.findIndex((l) => l.id === lang);
+  return (
+    <div role="group" aria-label={t.langLabel} className={`relative rounded-full border border-white/10 bg-white/[0.04] p-1 ${className}`}>
+      <span aria-hidden="true" className="lang-indicator absolute left-1 top-1 h-8 w-9 rounded-full" style={{ transform: `translateX(${idx * 100}%)` }} />
+      {LANGS.map((l) => (
+        <button
+          key={l.id}
+          type="button"
+          onClick={() => setLang(l.id)}
+          aria-pressed={lang === l.id}
+          title={l.name}
+          lang={l.html}
+          className={`relative z-10 h-8 w-9 rounded-full text-[12px] font-medium tracking-[0.08em] transition-colors duration-300 ${lang === l.id ? "text-white" : "text-white/55 hover:text-white"}`}
+        >
+          {l.label}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function LangMenu() {
+  const { lang, setLang, t } = useI18n();
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+  const current = LANGS.find((l) => l.id === lang);
+  useEffect(() => {
+    if (!open) return;
+    const onDown = (e) => !ref.current?.contains(e.target) && setOpen(false);
+    const onKey = (e) => e.key === "Escape" && setOpen(false);
+    document.addEventListener("pointerdown", onDown);
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("pointerdown", onDown);
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
+  return (
+    <div ref={ref} className="relative">
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        aria-haspopup="true"
+        aria-expanded={open}
+        aria-label={`${t.langLabel}: ${current.name}`}
+        className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/[0.04] text-[11.5px] font-medium tracking-[0.06em] text-white/85 transition hover:border-malva/70"
+      >
+        {current.label}
+      </button>
+      <div className={`lang-pop absolute right-0 top-full mt-2 w-44 rounded-2xl border border-white/10 bg-ink/95 p-1.5 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.9)] backdrop-blur-xl ${open ? "is-open" : ""}`}>
+        {LANGS.map((l) => (
+          <button
+            key={l.id}
+            type="button"
+            onClick={() => {
+              setLang(l.id);
+              setOpen(false);
+            }}
+            className={`flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-left text-[14px] transition ${lang === l.id ? "bg-malva/20 text-white" : "text-white/75 hover:bg-white/5 hover:text-white"}`}
+          >
+            <span lang={l.html}>{l.name}</span>
+            {lang === l.id ? <Icon name="check" size={15} className="text-malva" /> : <span className="text-[11px] text-white/40">{l.label}</span>}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* --------------------------------------------------------------------------
+   HEADER + MENU MOBILE
+   -------------------------------------------------------------------------- */
+
+function Header() {
+  const { t } = useI18n();
+  const scrolled = useScrolledPast(24);
+  const [open, setOpen] = useState(false);
+  const [active, setActive] = useState("");
+
+  useEffect(() => {
+    if (!("IntersectionObserver" in window)) return;
+    const io = new IntersectionObserver((entries) => entries.forEach((e) => e.isIntersecting && setActive(e.target.id)), { rootMargin: "-45% 0px -50% 0px" });
+    NAV_IDS.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
+    return () => io.disconnect();
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.style.overflow = open ? "hidden" : "";
+    const onKey = (e) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
+  return (
+    <>
+      <header className={`site-header fixed inset-x-0 top-0 z-50 ${scrolled ? "is-scrolled" : ""}`}>
+        <div className={`mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 transition-[height] min-[400px]:px-5 duration-500 sm:px-8 ${scrolled ? "h-16" : "h-[72px] sm:h-20"}`}>
+          <a href="#inicio" className="group flex min-w-0 items-center gap-2.5 min-[400px]:gap-3" aria-label={t.header.home}>
+            <LogoMark className="h-10 w-10 transition-transform duration-700 ease-out group-hover:-rotate-6 group-hover:scale-105" />
+            <span className="max-[369px]:hidden">
+              <Wordmark />
+            </span>
+          </a>
+
+          <nav className="hidden items-center gap-1 xl:flex" aria-label={t.header.menu}>
+            {NAV_IDS.map((id) => (
+              <a key={id} href={`#${id}`} className={`nav-link relative whitespace-nowrap rounded-full px-3 py-2 text-[14px] transition-colors duration-300 ${active === id ? "is-active text-white" : "text-white/65 hover:text-white"}`}>
+                {t.nav[id]}
+              </a>
+            ))}
+          </nav>
+
+          <div className="flex shrink-0 items-center gap-1 min-[400px]:gap-1.5 sm:gap-2.5">
+            <LangSwitcher className="hidden sm:flex" />
+            <div className="sm:hidden">
+              <LangMenu />
+            </div>
+            <a {...bookingLink()} className="btn-primary px-3 py-2.5 text-[12.5px] min-[400px]:px-3.5 min-[400px]:text-[13px] sm:px-6 sm:text-sm">
+              <Icon name="calendar" size={15} className="hidden sm:block" />
+              <span className="sm:hidden">{t.header.bookShort}</span>
+              <span className="hidden sm:inline">{t.header.book}</span>
+            </a>
+            <button type="button" onClick={() => setOpen(true)} className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/[0.04] text-white/85 transition hover:border-malva/70 min-[400px]:h-10 min-[400px]:w-10 sm:h-11 sm:w-11 xl:hidden" aria-label={t.header.openMenu} aria-expanded={open}>
+              <Icon name="menu" size={21} />
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <div className={`mobile-menu fixed inset-0 z-[60] xl:hidden ${open ? "is-open" : ""}`} role="dialog" aria-modal="true" aria-label={t.header.menu} aria-hidden={!open}>
+        <div className="menu-backdrop absolute inset-0" onClick={() => setOpen(false)} />
+        <div className="relative mx-auto flex h-full max-w-2xl flex-col overflow-y-auto px-6" style={{ paddingTop: "calc(env(safe-area-inset-top, 0px) + 16px)", paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 28px)" }}>
+          <div className="flex items-center justify-between">
+            <span className="flex items-center gap-3">
+              <LogoMark className="h-10 w-10" />
+              <Wordmark />
+            </span>
+            <button type="button" onClick={() => setOpen(false)} className="icon-btn" aria-label={t.header.closeMenu} tabIndex={open ? 0 : -1}>
+              <Icon name="x" size={22} />
+            </button>
+          </div>
+          <nav className="mt-10 flex flex-col" aria-label={t.header.menu}>
+            {NAV_IDS.map((id, i) => (
+              <a key={id} href={`#${id}`} onClick={() => setOpen(false)} tabIndex={open ? 0 : -1} className="menu-link group flex items-center justify-between border-b border-white/[0.08] py-4" style={{ transitionDelay: open ? `${100 + i * 55}ms` : "0ms" }}>
+                <span className={`font-display text-[2rem] leading-none ${active === id ? "text-metal" : "text-white"}`}>{t.nav[id]}</span>
+                <Icon name="arrowUpRight" size={20} className="text-white/30 transition-colors duration-300 group-hover:text-malva" />
+              </a>
+            ))}
+          </nav>
+          <div className="mt-auto flex flex-col gap-3 pt-8">
+            <LangSwitcher className="flex self-center" />
+            <a
+              href="#agendar"
+              onClick={(e) => {
+                e.preventDefault();
+                setOpen(false);
+                openBooking();
+              }}
+              tabIndex={open ? 0 : -1}
+              className="btn-primary py-4 text-[15px]"
+            >
+              <Icon name="calendar" size={18} />
+              {t.header.book}
+            </a>
+            <a href={IG_URL} {...ext} tabIndex={open ? 0 : -1} className="btn-glass py-4 text-[15px]">
+              <Icon name="instagram" size={18} />@{CONFIG.instagram}
+            </a>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+/* --------------------------------------------------------------------------
+   HERO
+   -------------------------------------------------------------------------- */
+
+function Hero() {
+  const { t } = useI18n();
+  return (
+    <section id="inicio" className="relative isolate overflow-hidden">
+      <div className="absolute inset-0 -z-10" aria-hidden="true">
+        {CONFIG.heroImage ? <img src={CONFIG.heroImage} alt="" className="h-full w-full object-cover" /> : <div className="hero-art h-full w-full" />}
+        <div className="absolute inset-0" style={{ background: "rgba(70, 37, 54, 0.7)" }} />
+        <div className="hero-glow absolute inset-0" />
+        <div className="grain absolute inset-0" />
+        <div className="absolute inset-x-0 bottom-0 h-2/5" style={{ background: "linear-gradient(to bottom, rgba(30,30,30,0), #1e1e1e)" }} />
+      </div>
+
+      <SignatureArc id="arc-m" className="absolute -right-[58vw] top-[7%] -z-10 w-[130vw] opacity-60 lg:hidden" />
+
+      <div className="mx-auto grid min-h-[100svh] w-full max-w-7xl items-center gap-12 px-5 pb-20 pt-32 sm:px-8 lg:grid-cols-[1.1fr_.9fr] lg:pt-28">
+        <div className="max-w-2xl">
+          <p className="rise inline-flex items-center gap-2.5 rounded-full border border-taupe/50 bg-ink/40 px-4 py-2 text-[13px] text-white/85 backdrop-blur-md" style={{ animationDelay: "120ms" }}>
+            <Icon name="sparkles" size={14} className="text-malva" />
+            {t.hero.badge}
+          </p>
+          <h1 className="mt-8 text-white">
+            <span className="rise block font-display text-[3.2rem] font-medium leading-[0.95] tracking-[-0.01em] sm:text-7xl lg:text-[5.4rem]" style={{ animationDelay: "280ms" }}>
+              {t.hero.line1}
+            </span>
+            <span className="rise text-metal mt-1 block pb-2 font-script text-[2.9rem] leading-[1.15] sm:text-[4.6rem] lg:text-[5.6rem]" style={{ animationDelay: "480ms" }}>
+              {t.hero.line2}
+            </span>
+          </h1>
+          <p className="rise mt-6 max-w-xl text-[17px] font-light leading-relaxed text-white/80 sm:text-lg" style={{ animationDelay: "680ms" }}>
+            {t.hero.text}
+          </p>
+          <div className="rise mt-9 flex flex-col gap-3 sm:flex-row" style={{ animationDelay: "840ms" }}>
+            <a {...bookingLink()} className="btn-primary px-8 py-4 text-[15px]">
+              <Icon name="calendar" size={18} />
+              {t.hero.book}
+            </a>
+            <a href="#servicos" className="btn-glass px-8 py-4 text-[15px]">
+              {t.hero.explore}
+            </a>
+          </div>
+          <ul className="rise mt-12 flex flex-col gap-3 text-[14px] text-white/70 sm:flex-row sm:flex-wrap sm:gap-x-8" style={{ animationDelay: "980ms" }}>
+            <li className="flex items-center gap-2.5">
+              <Icon name="clock" size={16} className="text-malva" />
+              {t.hero.hours}
+            </li>
+            <li className="flex items-center gap-2.5">
+              <Icon name="mapPin" size={16} className="text-malva" />
+              {t.hero.location}
+            </li>
+            <li>
+              <a href={IG_URL} {...ext} className="flex items-center gap-2.5 transition-colors hover:text-white">
+                <Icon name="instagram" size={16} className="text-malva" />@{CONFIG.instagram}
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div className="relative hidden lg:block">
+          <div className="relative mx-auto aspect-square w-full max-w-[520px]">
+            <SignatureArc id="arc-d" className="absolute inset-0 h-full w-full" />
+            <div className="absolute inset-[18%] rounded-full" style={{ background: "radial-gradient(circle, rgba(191,126,132,.22), transparent 70%)" }} />
+            <div className="rise absolute inset-0 flex items-center justify-center" style={{ animationDelay: "900ms" }}>
+              <LogoFull className="w-[62%] drop-shadow-[0_20px_50px_rgba(0,0,0,0.55)]" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SectionTitle({ title, text, className = "" }) {
+  return (
+    <div className={`max-w-2xl ${className}`}>
+      <h2 className="font-display text-[2.6rem] font-medium leading-[1.02] text-white sm:text-6xl">{title}</h2>
+      {text && <p className="mt-5 max-w-xl text-base font-light leading-relaxed text-white/65 sm:text-lg">{text}</p>}
+    </div>
+  );
+}
+
+/* --------------------------------------------------------------------------
+   MENU DE SERVIÇOS
+   -------------------------------------------------------------------------- */
+
+const normalize = (s) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+
+function ServiceCard({ s, index, showCategory }) {
+  const { t } = useI18n();
+  const cat = CATEGORY_IDS.find((c) => c.id === s.cat);
+  const [name, desc, time] = t.serviceList[s.id];
+  return (
+    <article onPointerMove={spotlight} className="service-card fade-up group flex flex-col rounded-2xl border border-white/[0.06] bg-surface p-6 sm:p-7" style={{ animationDelay: `${Math.min(index, 8) * 55}ms` }}>
+      <div className="flex items-start justify-between gap-3">
+        <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-taupe/40 bg-ameixa/60 text-malva transition-all duration-500 group-hover:border-malva/60 group-hover:shadow-[0_0_26px_-4px_rgba(191,126,132,0.6)]">
+          <Icon name={cat.icon} size={20} />
+        </span>
+        <div className="flex flex-wrap justify-end gap-1.5">
+          {showCategory && <span className="rounded-full border border-taupe/50 px-2.5 py-1 text-[11px] text-white/60">{t.categories[s.cat]}</span>}
+          {s.tag && <span className="rounded-full bg-taupe/35 px-2.5 py-1 text-[11px] text-[#f0c9cc]">{t.tags[s.tag]}</span>}
+        </div>
+      </div>
+      <h3 className="mt-5 font-display text-[1.7rem] font-medium leading-tight text-white">{name}</h3>
+      <p className="mt-2 flex-1 text-[15px] font-light leading-relaxed text-white/60">{desc}</p>
+      <div className="mt-6 flex items-center justify-between gap-3 border-t border-white/[0.06] pt-5">
+        <span className="flex items-center gap-2 text-[13px] text-white/70">
+          <Icon name="clock" size={15} className="text-malva/80" />
+          {time}
+        </span>
+        <a {...bookingLink({ services: [s.id] })} className="btn-agendar" aria-label={t.services.bookAria(name)}>
+          <Icon name="calendar" size={14} />
+          {t.services.book}
+        </a>
+      </div>
+    </article>
+  );
+}
+
+function Services() {
+  const { t, lang } = useI18n();
+  const [tab, setTab] = useState("cabelos");
+  const [query, setQuery] = useState("");
+  const [indicator, setIndicator] = useState({ left: 0, width: 0 });
+  const tabRefs = useRef({});
+  const barRef = useRef(null);
+  const searching = query.trim().length > 0;
+
+  const list = useMemo(() => {
+    if (searching) {
+      const q = normalize(query.trim());
+      return SERVICES.filter((s) => {
+        const [n, d] = t.serviceList[s.id];
+        return normalize(`${n} ${d} ${serviceName("pt", s.id)}`).includes(q);
+      });
+    }
+    return SERVICES.filter((s) => s.cat === tab);
+  }, [tab, query, searching, t]);
+
+  const measure = useCallback(() => {
+    const el = tabRefs.current[tab];
+    if (el) setIndicator({ left: el.offsetLeft, width: el.offsetWidth });
+  }, [tab]);
+
+  useLayoutEffect(() => {
+    measure();
+    const el = tabRefs.current[tab];
+    const bar = barRef.current;
+    if (el && bar && bar.scrollWidth > bar.clientWidth) bar.scrollTo({ left: el.offsetLeft - (bar.clientWidth - el.offsetWidth) / 2, behavior: "smooth" });
+  }, [measure, tab, lang]);
+
+  useEffect(() => {
+    window.addEventListener("resize", measure);
+    document.fonts?.ready?.then(measure);
+    return () => window.removeEventListener("resize", measure);
+  }, [measure]);
+
+  return (
+    <section id="servicos" className="relative py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <SectionTitle title={t.services.title} text={t.services.text} />
+          <label className="group relative flex w-full items-center lg:w-[380px]">
+            <Icon name="search" size={18} className="pointer-events-none absolute left-5 text-white/40 transition-colors group-focus-within:text-malva" />
+            <input
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder={t.services.searchPlaceholder}
+              aria-label={t.services.searchLabel}
+              className="search-input w-full rounded-full border border-white/10 bg-white/[0.04] py-4 pl-12 pr-12 text-base text-white placeholder:text-white/35 outline-none backdrop-blur-md transition focus:border-malva/60 focus:bg-white/[0.06]"
+            />
+            {searching && (
+              <button type="button" onClick={() => setQuery("")} className="absolute right-3 flex h-9 w-9 items-center justify-center rounded-full text-white/50 transition hover:bg-white/10 hover:text-white" aria-label={t.services.clear}>
+                <Icon name="x" size={16} />
+              </button>
+            )}
+          </label>
+        </div>
+
+        <div ref={barRef} className="no-scrollbar -mx-5 mt-10 overflow-x-auto px-5 sm:mx-0 sm:px-0">
+          <div className={`relative flex w-max gap-1 rounded-full border border-white/10 bg-white/[0.03] p-1.5 backdrop-blur-md transition-opacity duration-300 ${searching ? "opacity-60" : ""}`} role="tablist" aria-label={t.services.tabsLabel}>
+            <span className="tab-indicator" style={{ left: indicator.left, width: indicator.width, opacity: searching ? 0 : 1 }} aria-hidden="true" />
+            {CATEGORY_IDS.map((c) => {
+              const isActive = !searching && tab === c.id;
+              return (
+                <button
+                  key={c.id}
+                  ref={(el) => (tabRefs.current[c.id] = el)}
+                  type="button"
+                  role="tab"
+                  aria-selected={isActive}
+                  onClick={() => {
+                    setTab(c.id);
+                    setQuery("");
+                  }}
+                  className={`relative z-10 flex items-center gap-2 whitespace-nowrap rounded-full px-4 py-2.5 text-[14px] font-medium transition-colors duration-300 sm:px-5 ${isActive ? "text-white" : "text-white/60 hover:text-white"}`}
+                >
+                  <Icon name={c.icon} size={16} />
+                  {t.categories[c.id]}
+                  <span className={`rounded-full px-1.5 py-0.5 text-[10px] transition-colors ${isActive ? "bg-white/20" : "bg-white/[0.06]"}`}>{SERVICES.filter((s) => s.cat === c.id).length}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {searching && (
+          <p className="mt-8 text-sm text-white/55" aria-live="polite">
+            {t.services.found(list.length, query.trim())}
+          </p>
+        )}
+
+        {list.length > 0 ? (
+          <div key={searching ? "busca" : tab} className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {list.map((s, i) => (
+              <ServiceCard key={s.id} s={s} index={i} showCategory={searching} />
+            ))}
+          </div>
+        ) : (
+          <div className="mt-8 flex flex-col items-start gap-4 rounded-2xl border border-dashed border-taupe/50 p-8 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="font-display text-2xl text-white">{t.services.notFound(query.trim())}</p>
+              <p className="mt-1 text-[15px] text-white/60">{t.services.notFoundText}</p>
+            </div>
+            <a href={waAsk(lang, query.trim())} {...ext} className="btn-primary shrink-0 px-6 py-3 text-sm">
+              <WhatsIcon size={16} />
+              {t.services.ask}
+            </a>
+          </div>
+        )}
+
+        <p className="mt-8 text-[13px] text-white/45">{t.services.footnote}</p>
+      </div>
+    </section>
+  );
+}
+
+/* --------------------------------------------------------------------------
+   ANTES & DEPOIS + INSTAGRAM
+   -------------------------------------------------------------------------- */
+
+function BeforeAfter() {
+  const { t } = useI18n();
+  const [pos, setPos] = useState(50);
+  const [smooth, setSmooth] = useState(false);
+  const [dragging, setDragging] = useState(false);
+  const [wrapRef, seen] = useInViewOnce(0.4);
+  const timers = useRef([]);
+  const hinted = useRef(false);
+
+  const stopHint = () => {
+    timers.current.forEach(clearTimeout);
+    timers.current = [];
+    setSmooth(false);
+  };
+
+  useEffect(() => {
+    if (!seen || hinted.current) return;
+    hinted.current = true;
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
+    setSmooth(true);
+    timers.current = [setTimeout(() => setPos(30), 350), setTimeout(() => setPos(70), 1250), setTimeout(() => setPos(50), 2150), setTimeout(() => setSmooth(false), 3000)];
+    return () => timers.current.forEach(clearTimeout);
+  }, [seen]);
+
+  const update = (clientX) => {
+    const r = wrapRef.current.getBoundingClientRect();
+    setPos(Math.max(0, Math.min(100, ((clientX - r.left) / r.width) * 100)));
+  };
+
+  return (
+    <div
+      ref={wrapRef}
+      className={`ba relative aspect-[4/5] w-full cursor-ew-resize select-none overflow-hidden rounded-[28px] border border-white/10 shadow-[0_40px_100px_-40px_rgba(191,126,132,0.45)] ${smooth ? "ba-smooth" : ""}`}
+      style={{ touchAction: "pan-y" }}
+      onPointerDown={(e) => {
+        stopHint();
+        setDragging(true);
+        wrapRef.current.setPointerCapture?.(e.pointerId);
+        update(e.clientX);
+      }}
+      onPointerMove={(e) => dragging && update(e.clientX)}
+      onPointerUp={() => setDragging(false)}
+      onPointerCancel={() => setDragging(false)}
+      onKeyDown={(e) => {
+        if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+          e.preventDefault();
+          stopHint();
+          setPos((p) => Math.max(0, Math.min(100, p + (e.key === "ArrowLeft" ? -5 : 5))));
+        }
+      }}
+      tabIndex={0}
+      role="slider"
+      aria-label={t.ba.aria}
+      aria-valuemin={0}
+      aria-valuemax={100}
+      aria-valuenow={Math.round(pos)}
+    >
+      <div className="absolute inset-0">{CONFIG.afterImage ? <img src={CONFIG.afterImage} alt={t.ba.after} draggable="false" className="h-full w-full object-cover" /> : <HairArt variant="after" />}</div>
+      <div className="ba-clip absolute inset-0" style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}>
+        {CONFIG.beforeImage ? <img src={CONFIG.beforeImage} alt={t.ba.before} draggable="false" className="h-full w-full object-cover" /> : <HairArt variant="before" />}
+      </div>
+      <span className="pointer-events-none absolute left-4 top-4 rounded-full border border-white/15 bg-ink/50 px-3.5 py-1.5 text-[13px] text-white/85 backdrop-blur-md transition-opacity duration-300" style={{ opacity: pos < 14 ? 0 : 1 }}>
+        {t.ba.before}
+      </span>
+      <span className="pointer-events-none absolute right-4 top-4 rounded-full border border-malva/40 bg-ameixa/60 px-3.5 py-1.5 text-[13px] text-white backdrop-blur-md transition-opacity duration-300" style={{ opacity: pos > 86 ? 0 : 1 }}>
+        {t.ba.after}
+      </span>
+      <div className="ba-handle pointer-events-none absolute inset-y-0 z-10" style={{ left: `${pos}%` }}>
+        <div className="absolute inset-y-0 left-0 w-[2px] -translate-x-1/2 bg-gradient-to-b from-transparent via-white/90 to-transparent" />
+        <div className={`absolute left-0 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-ameixa/70 text-white shadow-[0_0_0_6px_rgba(191,126,132,0.18),0_10px_30px_rgba(0,0,0,0.5)] backdrop-blur-md transition-transform duration-300 ${dragging ? "scale-110" : ""}`}>
+          <Icon name="chevronLeft" size={15} strokeWidth={2} />
+          <Icon name="chevronRight" size={15} strokeWidth={2} />
+        </div>
+      </div>
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 p-5 sm:p-6" style={{ background: "linear-gradient(to top, rgba(30,30,30,.85), transparent)" }}>
+        <p className="font-display text-xl text-white sm:text-2xl">{t.ba.caption}</p>
+        <p className="text-[13px] text-white/60">{t.ba.hint}</p>
+      </div>
+    </div>
+  );
+}
+
+function InstagramFeed() {
+  const { t } = useI18n();
+  return (
+    <div className="mt-24 rounded-[28px] border border-white/[0.08] bg-surface/60 p-5 sm:p-10">
+      <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex items-center gap-4">
+          <span className="ig-ring flex h-16 w-16 shrink-0 items-center justify-center rounded-full p-[2px]">
+            <span className="flex h-full w-full items-center justify-center rounded-full bg-ink">
+              <LogoMark className="h-11 w-11" />
+            </span>
+          </span>
+          <div className="min-w-0">
+            <p className="truncate font-display text-[1.6rem] leading-tight text-white sm:text-3xl">@{CONFIG.instagram}</p>
+            <p className="mt-1 text-sm text-white/60">{t.instagram.tagline}</p>
+          </div>
+        </div>
+        <a href={IG_URL} {...ext} className="btn-glass shrink-0 px-6 py-3 text-sm">
+          <Icon name="instagram" size={17} />
+          {t.instagram.follow}
+        </a>
+      </div>
+      <div className="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3">
+        {INSTAGRAM_POSTS.map((p, i) => {
+          const typeLabel = p.type === "reel" ? t.instagram.reel : t.instagram.post;
+          return (
+            <a key={i} href={p.postUrl || IG_URL} {...ext} className="group relative block aspect-[4/5] overflow-hidden rounded-xl bg-ink sm:rounded-2xl" aria-label={`${typeLabel}: ${p.caption}`}>
+              <img src={p.imageUrl} alt="" loading="lazy" decoding="async" draggable="false" className="h-full w-full object-cover brightness-[0.92] contrast-[1.05] saturate-[0.9] transition-all duration-700 ease-out group-hover:scale-105 group-hover:brightness-100 group-hover:saturate-100" />
+              <span className="absolute right-2.5 top-2.5 flex h-8 w-8 items-center justify-center rounded-full bg-ink/45 text-white backdrop-blur-md sm:right-3 sm:top-3" title={typeLabel}>
+                <Icon name={p.type === "reel" ? "clapperboard" : "image"} size={15} />
+              </span>
+              <span className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-[#1e1e1e]/95 via-[#462536]/60 to-[#462536]/10 p-3.5 opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus-visible:opacity-100 sm:p-5">
+                <span className="line-clamp-3 text-[13px] leading-snug text-white/90 sm:text-[14px]">{p.caption}</span>
+                <span className="mt-2.5 text-[12px] font-medium text-malva sm:text-[13px]">{t.instagram.view}</span>
+              </span>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function Transformations() {
+  const { t } = useI18n();
+  return (
+    <section id="transformacoes" className="relative overflow-hidden py-24 sm:py-32">
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true" style={{ background: "radial-gradient(55% 45% at 15% 35%, rgba(70,37,54,.6), transparent 70%)" }} />
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+          <BeforeAfter />
+          <div>
+            <SectionTitle title={t.transform.title} text={t.transform.text} />
+            <dl className="mt-10 divide-y divide-white/[0.07] border-y border-white/[0.07]">
+              {t.transform.case.map(([k, v]) => (
+                <div key={k} className="flex items-baseline justify-between gap-6 py-4">
+                  <dt className="text-sm text-white/50">{k}</dt>
+                  <dd className="text-right font-display text-xl text-white">{v}</dd>
+                </div>
+              ))}
+            </dl>
+            <a {...bookingLink({ services: ["mechas"] })} className="btn-primary mt-8 w-full px-7 py-4 text-[15px] sm:w-auto">
+              <Icon name="calendar" size={18} />
+              {t.transform.cta}
+            </a>
+          </div>
+        </div>
+        <InstagramFeed />
+      </div>
+    </section>
+  );
+}
+
+/* --------------------------------------------------------------------------
+   QUIZ
+   -------------------------------------------------------------------------- */
+
+function Quiz() {
+  const { t, lang } = useI18n();
+  const [step, setStep] = useState(0);
+  const [area, setArea] = useState(null);
+  const [goal, setGoal] = useState(null);
+  const [picked, setPicked] = useState(null);
+
+  const choose = (id) => {
+    if (picked) return;
+    setPicked(id);
+    setTimeout(() => {
+      if (step === 0) {
+        setArea(id);
+        setStep(1);
+      } else {
+        setGoal(id);
+        setStep(2);
+      }
+      setPicked(null);
+    }, 380);
+  };
+  const reset = () => {
+    setStep(0);
+    setArea(null);
+    setGoal(null);
+  };
+
+  const recIds = area && goal ? RECS[area][goal] : null;
+  const recText = area && goal ? t.quiz.recs[area][goal] : null;
+  const options = step === 0 ? QUIZ_AREAS.map((o) => ({ ...o, text: t.quiz.areas[o.id] })) : QUIZ_GOALS.map((o) => ({ ...o, text: t.quiz.goals[o.id] }));
+  const progress = step === 0 ? 10 : step === 1 ? 55 : 100;
+
+  return (
+    <section id="quiz" className="quiz-band relative py-24 sm:py-32">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-[.85fr_1.15fr] lg:gap-20">
+        <div>
+          <SectionTitle title={t.quiz.title} text={t.quiz.text} />
+          <p className="mt-6 flex items-center gap-2.5 text-sm text-white/55">
+            <Icon name="clock" size={16} className="text-malva" />
+            {t.quiz.time}
+          </p>
+        </div>
+        <div className="glass relative overflow-hidden rounded-[28px] p-6 sm:p-9">
+          <div className="flex items-center justify-between text-[13px] text-white/55">
+            <span aria-live="polite">{step < 2 ? t.quiz.question(step + 1) : t.quiz.result}</span>
+            {step > 0 && (
+              <button
+                type="button"
+                onClick={
+                  step === 2
+                    ? reset
+                    : () => {
+                        setStep(0);
+                        setArea(null);
+                      }
+                }
+                className="flex items-center gap-1.5 rounded-full px-2 py-1 transition-colors hover:text-white"
+              >
+                <Icon name={step === 2 ? "rotateCcw" : "chevronLeft"} size={14} />
+                {step === 2 ? t.quiz.restart : t.quiz.back}
+              </button>
+            )}
+          </div>
+          <div className="mt-4 h-1 overflow-hidden rounded-full bg-white/10">
+            <div className="h-full rounded-full transition-[width] duration-700 ease-out" style={{ width: `${progress}%`, background: "linear-gradient(90deg,#795f68,#bf7e84,#f0c9c4)" }} />
+          </div>
+          <div key={step} className="step-in mt-8">
+            {step < 2 ? (
+              <>
+                <h3 className="font-display text-[2rem] leading-tight text-white sm:text-4xl">{step === 0 ? t.quiz.q1 : t.quiz.q2}</h3>
+                <div className="mt-7 grid grid-cols-2 gap-3">
+                  {options.map((o) => {
+                    const isPicked = picked === o.id;
+                    return (
+                      <button
+                        key={o.id}
+                        type="button"
+                        onClick={() => choose(o.id)}
+                        className={`group flex flex-col items-start gap-3 rounded-2xl border p-4 text-left transition-all duration-300 sm:p-5 ${isPicked ? "scale-[0.98] border-malva bg-malva/15" : "border-white/10 bg-white/[0.03] hover:-translate-y-1 hover:border-malva/60 hover:bg-white/[0.06]"}`}
+                      >
+                        <span className={`flex h-10 w-10 items-center justify-center rounded-xl transition-colors duration-300 ${isPicked ? "bg-malva text-white" : "bg-ameixa/80 text-malva group-hover:bg-malva group-hover:text-white"}`}>
+                          <Icon name={isPicked ? "check" : o.icon} size={18} />
+                        </span>
+                        <span>
+                          <span className="block text-[15px] font-medium leading-snug text-white">{o.text[0]}</span>
+                          <span className="mt-1 block text-[13px] text-white/50">{o.text[1]}</span>
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </>
+            ) : (
+              recIds && (
+                <div className="relative">
+                  <div className="pointer-events-none absolute left-1/2 top-6" aria-hidden="true">
+                    {BURST.map(([dx, dy], i) => (
+                      <span key={i} className="burst" style={{ "--dx": `${dx}px`, "--dy": `${dy}px`, animationDelay: `${i * 20}ms` }} />
+                    ))}
+                  </div>
+                  <p className="text-[13px] text-malva">{t.quiz.ideal}</p>
+                  <h3 className="text-metal mt-3 font-display text-[2.4rem] font-medium leading-[1.05] sm:text-5xl">{recIds.map((id) => serviceName(lang, id)).join(" + ")}</h3>
+                  <p className="mt-4 text-[16px] font-light leading-relaxed text-white/75">{recText[0]}</p>
+                  <div className="mt-6 flex flex-wrap gap-2 text-[13px]">
+                    <span className="flex items-center gap-1.5 rounded-full border border-taupe/50 px-3 py-1.5 text-white/75">
+                      <Icon name="clock" size={14} className="text-malva" />
+                      {recText[1]}
+                    </span>
+                    <span className="rounded-full border border-taupe/50 px-3 py-1.5 text-white/75">{t.quiz.areas[area][0]}</span>
+                    <span className="rounded-full border border-taupe/50 px-3 py-1.5 text-white/75">{t.quiz.goals[goal][0]}</span>
+                  </div>
+                  <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                    <a {...bookingLink({ services: recIds })} className="btn-primary px-7 py-4 text-[15px]">
+                      <Icon name="calendar" size={18} />
+                      {t.quiz.book}
+                    </a>
+                    <button type="button" onClick={reset} className="btn-glass px-7 py-4 text-[15px]">
+                      <Icon name="rotateCcw" size={16} />
+                      {t.quiz.redo}
+                    </button>
+                  </div>
+                </div>
+              )
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* --------------------------------------------------------------------------
+   DIFERENCIAIS + AVALIAÇÕES DO GOOGLE
+   -------------------------------------------------------------------------- */
+
+function ReviewCard({ r }) {
+  const { t } = useI18n();
+  return (
+    <figure className="review-card flex w-[84%] shrink-0 snap-center flex-col rounded-2xl border border-white/[0.07] bg-surface p-6 sm:w-[58%] lg:w-auto">
+      <div className="flex items-center justify-between">
+        <Stars size={16} />
+        <GoogleG size={18} />
+      </div>
+      <blockquote className="mt-5 flex-1 font-display text-[1.35rem] leading-snug text-white/90" lang="pt-BR">
+        “{r.text}”
+      </blockquote>
+      {t.reviews.original && <p className="mt-3 text-[12px] italic text-white/40">{t.reviews.original}</p>}
+      <figcaption className="mt-6 flex items-center gap-3 border-t border-white/[0.07] pt-5">
+        <span className="flex h-10 w-10 items-center justify-center rounded-full text-sm font-medium text-white" style={{ background: "linear-gradient(135deg,#bf7e84,#462536)" }}>
+          {r.name[0]}
+        </span>
+        <span>
+          <span className="block text-[15px] text-white">{r.name}</span>
+          <span className="block text-xs text-malva">{t.reviews.about[r.about]}</span>
+        </span>
+      </figcaption>
+    </figure>
+  );
+}
+
+function Experience() {
+  const { t } = useI18n();
+  return (
+    <section id="avaliacoes" className="relative py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="grid gap-12 lg:grid-cols-[.9fr_1.1fr] lg:gap-20">
+          <SectionTitle title={t.experience.title} text={t.experience.text} />
+          <ul className="grid gap-x-10 gap-y-9 sm:grid-cols-2">
+            {t.experience.features.map(([title, text], i) => (
+              <li key={title} className="group">
+                <span className="flex h-12 w-12 items-center justify-center rounded-full border border-taupe/60 text-malva transition-all duration-500 group-hover:border-malva group-hover:bg-malva/10 group-hover:shadow-[0_0_30px_-6px_rgba(191,126,132,0.7)]">
+                  <Icon name={FEATURE_ICONS[i]} size={20} />
+                </span>
+                <h3 className="mt-4 font-display text-[1.6rem] leading-tight text-white">{title}</h3>
+                <p className="mt-2 text-[15px] font-light leading-relaxed text-white/60">{text}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-24 rounded-[28px] border border-white/[0.08] bg-surface/50 p-6 sm:p-10">
+          <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+            <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-7">
+              <div className="flex items-center gap-4">
+                <span className="text-metal font-display text-[5rem] font-medium leading-[0.85] sm:text-[6rem]" aria-label={t.reviews.ratingAria}>
+                  {GOOGLE_RATING}
+                </span>
+                <div>
+                  <Stars size={20} />
+                  <p className="mt-2 flex items-center gap-2 text-[15px] text-white">
+                    <GoogleG size={18} />
+                    {t.reviews.title}
+                  </p>
+                </div>
+              </div>
+              <p className="max-w-sm text-[15px] font-light leading-relaxed text-white/65 sm:border-l sm:border-white/10 sm:pl-7">{t.reviews.ratingText}</p>
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
+              <a href={GOOGLE_REVIEWS_URL} {...ext} className="btn-primary px-6 py-3.5 text-[14px]">
+                {t.reviews.seeAll}
+                <Icon name="arrowUpRight" size={16} />
+              </a>
+              <a href={GOOGLE_REVIEWS_URL} {...ext} className="btn-glass px-6 py-3.5 text-[14px]">
+                <Icon name="star" size={16} />
+                {t.reviews.rate}
+              </a>
+            </div>
+          </div>
+          <div className="no-scrollbar -mx-6 mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 sm:mx-0 sm:px-0 lg:grid lg:grid-cols-3 lg:overflow-visible">
+            {GOOGLE_REVIEWS.map((r, i) => (
+              <ReviewCard key={i} r={r} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* --------------------------------------------------------------------------
+   O NOSSO ESPAÇO (galeria vertical com tratamento editorial)
+   -------------------------------------------------------------------------- */
+
+function StudioSpace() {
+  const { t } = useI18n();
+  const railRef = useRef(null);
+  const [active, setActive] = useState(0);
+
+  const goTo = (i) => {
+    const rail = railRef.current;
+    const card = rail?.children[i];
+    if (!card) return;
+    const pad = parseFloat(getComputedStyle(rail).paddingLeft) || 0;
+    const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    rail.scrollTo({ left: card.offsetLeft - pad, behavior: reduce ? "auto" : "smooth" });
+  };
+
+  useEffect(() => {
+    const rail = railRef.current;
+    if (!rail) return;
+    let raf = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const pad = parseFloat(getComputedStyle(rail).paddingLeft) || 0;
+        const atEnd = rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 4;
+        if (atEnd) return setActive(rail.children.length - 1);
+        let best = 0;
+        let bestDist = Infinity;
+        [...rail.children].forEach((c, i) => {
+          const d = Math.abs(c.offsetLeft - pad - rail.scrollLeft);
+          if (d < bestDist) {
+            bestDist = d;
+            best = i;
+          }
+        });
+        setActive(best);
+      });
+    };
+    rail.addEventListener("scroll", onScroll, { passive: true });
+    return () => rail.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const total = STUDIO_PHOTOS.length;
+  const pad2 = (n) => String(n).padStart(2, "0");
+
+  return (
+    <section id="espaco" className="relative overflow-hidden py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
+          <SectionTitle title={t.space.title} text={t.space.text} />
+          <div className="flex items-center gap-4">
+            <span className="font-display text-xl tabular-nums text-white/70" aria-live="polite">
+              {pad2(active + 1)} <span className="text-white/30">/ {pad2(total)}</span>
+            </span>
+            <button type="button" onClick={() => goTo(Math.max(0, active - 1))} disabled={active === 0} className="icon-btn disabled:pointer-events-none disabled:opacity-30" aria-label={t.space.prev}>
+              <Icon name="arrowLeft" size={18} />
+            </button>
+            <button type="button" onClick={() => goTo(Math.min(total - 1, active + 1))} disabled={active === total - 1} className="icon-btn disabled:pointer-events-none disabled:opacity-30" aria-label={t.space.next}>
+              <Icon name="arrowRight" size={18} />
+            </button>
+          </div>
+        </div>
+
+        <div ref={railRef} className="no-scrollbar relative -mx-5 mt-12 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-5 px-5 pb-2 sm:-mx-8 sm:gap-4 sm:scroll-px-8 sm:px-8 lg:-mx-[max(2rem,calc(50vw-608px))] lg:scroll-px-[max(2rem,calc(50vw-608px))] lg:px-[max(2rem,calc(50vw-608px))]">
+          {STUDIO_PHOTOS.map((p, i) => {
+            const [tag, caption, alt] = t.space.cards[i];
+            return (
+              <figure
+                key={p.src}
+                tabIndex={0}
+                className="group relative aspect-[3/4] w-[82vw] max-w-[420px] shrink-0 snap-start overflow-hidden rounded-[24px] border border-white/[0.06] bg-surface transition-[border-color,box-shadow] duration-700 hover:border-[#bf7e84]/60 hover:shadow-[0_30px_70px_-30px_rgba(191,126,132,0.5)] focus:border-[#bf7e84]/60 sm:w-[360px] lg:w-[400px]"
+              >
+                <img
+                  src={p.src}
+                  alt={alt}
+                  loading="lazy"
+                  decoding="async"
+                  draggable="false"
+                  style={{ objectPosition: p.position || "50% 50%" }}
+                  className="absolute inset-0 h-full w-full object-cover object-center brightness-[0.90] contrast-[1.06] saturate-[0.88] transition-all duration-700 ease-out group-hover:scale-105 group-hover:brightness-100 group-hover:saturate-100 group-focus:scale-105 group-focus:brightness-100 group-focus:saturate-100"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-[#462536]/20 mix-blend-multiply transition-opacity duration-700 group-hover:opacity-0 group-focus:opacity-0" />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[35%] bg-gradient-to-t from-[#1e1e1e] via-[#1e1e1e]/60 to-transparent" />
+                <span className="absolute left-4 top-4 z-10 max-w-[calc(100%-2rem)] rounded-full border border-white/15 bg-[#1e1e1e]/45 px-3.5 py-1.5 text-[12px] text-white/90 backdrop-blur-md sm:left-5 sm:top-5">{tag}</span>
+                {p.detail && (
+                  <span className="absolute right-4 top-16 z-10 h-[4.5rem] w-28 overflow-hidden rounded-xl border border-[#bf7e84]/50 shadow-[0_14px_30px_-12px_rgba(0,0,0,0.8)] sm:right-5 sm:h-20 sm:w-32">
+                    <img src={p.detail} alt={t.space.detailAlt} loading="lazy" draggable="false" className="h-full w-full object-cover brightness-[0.9] contrast-[1.06] saturate-[0.88] transition-all duration-700 group-hover:brightness-100 group-hover:saturate-100" />
+                  </span>
+                )}
+                <figcaption className="absolute inset-x-0 bottom-0 z-10 p-5 transition-transform duration-700 ease-out group-hover:-translate-y-1 sm:p-6">
+                  <p className="font-display text-[1.2rem] leading-snug text-white [text-shadow:0_2px_18px_rgba(0,0,0,0.6)] sm:text-[1.4rem]">{caption}</p>
+                </figcaption>
+              </figure>
+            );
+          })}
+        </div>
+        <div className="mt-6 h-px overflow-hidden bg-white/10" aria-hidden="true">
+          <div className="h-full bg-malva transition-[width] duration-500 ease-out" style={{ width: `${((active + 1) / total) * 100}%` }} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* --------------------------------------------------------------------------
+   EQUIPE
+   -------------------------------------------------------------------------- */
+
+function Portrait({ person, tone = 0, small = false, letterSize }) {
+  const { t } = useI18n();
+  const [failed, setFailed] = useState(!person.photo);
+  useEffect(() => setFailed(!person.photo), [person.photo]);
+  if (!failed) {
+    return (
+      <div className="relative h-full w-full">
+        <img src={person.photo} alt={t.team.photoOf(person.name)} loading="lazy" decoding="async" draggable="false" onError={() => setFailed(true)} className="h-full w-full object-cover brightness-[0.88] contrast-[1.08] saturate-[0.85] transition-all duration-700 ease-out group-hover:brightness-100 group-hover:saturate-100" />
+        <div className="pointer-events-none absolute inset-0 bg-[#462536]/25 mix-blend-multiply transition-opacity duration-700 group-hover:opacity-40" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#1e1e1e]/55 via-transparent to-transparent" />
+      </div>
+    );
+  }
+  return (
+    <div className="relative h-full w-full" style={{ background: PORTRAIT_TONES[tone % PORTRAIT_TONES.length] }} role="img" aria-label={person.name}>
+      <span className={`text-metal absolute inset-0 flex items-center justify-center font-script leading-none ${small ? `pt-1 ${letterSize || "text-[2.1rem]"}` : "pt-8 text-[9rem]"}`}>{person.name[0]}</span>
+    </div>
+  );
+}
+
+function ProCard({ p, tone }) {
+  const { t } = useI18n();
+  const tp = t.team.pros[p.id];
+  return (
+    <article onPointerMove={spotlight} className="service-card group flex h-full flex-col items-center rounded-2xl border border-white/[0.06] bg-surface p-7 text-center">
+      <div className="relative">
+        <span className="pointer-events-none absolute -inset-4 rounded-full opacity-0 blur-xl transition-opacity duration-700 group-hover:opacity-100" style={{ background: "radial-gradient(circle, rgba(191,126,132,.45), transparent 70%)" }} aria-hidden="true" />
+        <div className="relative h-36 w-36 rounded-full border-2 border-malva p-1.5 shadow-[0_18px_40px_-18px_rgba(191,126,132,0.75)]">
+          <div className="h-full w-full overflow-hidden rounded-full">
+            <div className="h-full w-full transition-transform duration-[1200ms] ease-out group-hover:scale-105">
+              <Portrait person={p} tone={tone} small letterSize="text-[4.2rem]" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <p className="mt-6 text-[13px] text-malva">{tp.title}</p>
+      <h3 className="mt-1.5 font-display text-[2rem] font-medium leading-tight text-white">{p.name}</h3>
+      <a href={igFor(p.instagram)} {...ext} className="mt-1 text-[13px] text-white/45 transition-colors hover:text-malva">
+        @{p.instagram}
+      </a>
+      <div className="mt-5 w-full rounded-xl border border-white/[0.06] bg-white/[0.03] px-4 py-3.5">
+        <p className="text-[15px] font-medium text-white">{tp.clear}</p>
+        <p className="mt-1 text-[13px] leading-relaxed text-white/55">{tp.services}</p>
+      </div>
+      <p className="mt-5 flex-1 text-[15px] font-light leading-relaxed text-white/60">{tp.bio}</p>
+      <div className="mt-7 flex w-full items-center gap-3">
+        <a href={igFor(p.instagram)} {...ext} className="icon-btn shrink-0" aria-label={t.team.instagramOf(p.name, p.instagram)} title={`@${p.instagram}`}>
+          <Icon name="instagram" size={19} />
+        </a>
+        <a {...bookingLink({ pro: p.id })} className="btn-primary flex-1 py-3.5 text-[14px]">
+          <Icon name="calendar" size={16} />
+          {t.team.bookWith(p.first)}
+        </a>
+      </div>
+    </article>
+  );
+}
+
+function Team() {
+  const { t } = useI18n();
+  return (
+    <section id="equipe" className="relative py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <SectionTitle title={t.team.title} text={t.team.text} />
+        <div className="relative mt-12 overflow-hidden border-y border-white/[0.08] py-8 sm:py-10">
+          <div className="pointer-events-none absolute inset-0" aria-hidden="true" style={{ background: "linear-gradient(90deg, rgba(70,37,54,.45), rgba(70,37,54,0) 70%)" }} />
+          <div className="relative flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-8 sm:px-6">
+            <div className="h-20 w-20 shrink-0 rounded-full border border-malva/70 p-1">
+              <div className="h-full w-full overflow-hidden rounded-full">
+                <Portrait person={FOUNDER} tone={0} small letterSize="text-[2.6rem]" />
+              </div>
+            </div>
+            <div className="min-w-0 flex-1">
+              <p className="text-[13px] text-malva">{t.team.founderTitle}</p>
+              <h3 className="mt-1 font-display text-[1.9rem] leading-tight text-white">{FOUNDER.name}</h3>
+              <p className="mt-3 max-w-3xl text-[15px] font-light leading-relaxed text-white/65">{t.team.founderBio}</p>
+            </div>
+            <span className="text-metal hidden shrink-0 pb-1 pr-2 font-script text-5xl leading-none lg:block" aria-hidden="true">
+              {FOUNDER.name.split(" ")[0]}
+            </span>
+          </div>
+        </div>
+        <div className="mx-auto mt-10 grid max-w-xl gap-4 lg:max-w-none lg:grid-cols-3">
+          {PROS.map((p, i) => (
+            <ProCard key={p.id} p={p} tone={i + 1} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* --------------------------------------------------------------------------
+   AGENDAMENTO RÁPIDO INTELIGENTE
+   -------------------------------------------------------------------------- */
+
+function BookingStep({ n, title, optional, done, last, children }) {
+  const { t } = useI18n();
+  return (
+    <li className="relative min-w-0 pl-12 sm:pl-14">
+      {!last && <span className="absolute bottom-[-2.5rem] left-[17px] top-11 w-px bg-white/10" aria-hidden="true" />}
+      <span className={`absolute left-0 top-0 flex h-9 w-9 items-center justify-center rounded-full border font-display text-lg transition-all duration-500 ${done ? "border-malva bg-malva text-white shadow-[0_0_24px_-4px_rgba(191,126,132,0.8)]" : "border-taupe/70 text-white/70"}`} aria-hidden="true">
+        {done ? <Icon name="check" size={16} strokeWidth={2.2} /> : n}
+      </span>
+      <h3 className="pt-0.5 font-display text-[1.65rem] leading-tight text-white">
+        {title}
+        {optional && <span className="ml-2 font-sans text-[13px] font-light text-white/40">{t.booking.optional}</span>}
+      </h3>
+      <div className="mt-4">{children}</div>
+    </li>
+  );
+}
+
+function Booking() {
+  const { t, lang } = useI18n();
+  const b = t.booking;
+  const [name, setName] = useState(() => {
+    try {
+      return localStorage.getItem("euphoria:nome") || "";
+    } catch {
+      return "";
+    }
+  });
+  const [pro, setPro] = useState(null);
+  const [services, setServices] = useState([]);
+  const [cat, setCat] = useState("cabelos");
+  const [shift, setShift] = useState(null);
+  const [when, setWhen] = useState("");
+  const [touched, setTouched] = useState(false);
+  const [flash, setFlash] = useState(0);
+  const [shake, setShake] = useState(0);
+  const nameRef = useRef(null);
+  const servicesRef = useRef(null);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem("euphoria:nome", name);
+    } catch {}
+  }, [name]);
+
+  useEffect(() => {
+    const onOpen = (e) => {
+      const d = e.detail || {};
+      if (d.pro) {
+        setPro(d.pro);
+        const p = PROS.find((x) => x.id === d.pro);
+        if (p) setCat(p.cat);
+      }
+      if (d.services?.length) {
+        setServices((prev) => [...prev, ...d.services.filter((id) => !prev.includes(id))]);
+        const s = SERVICES.find((x) => x.id === d.services[0]);
+        if (s) setCat(s.cat);
+      }
+      setFlash((f) => f + 1);
+    };
+    window.addEventListener(BOOKING_EVENT, onOpen);
+    return () => window.removeEventListener(BOOKING_EVENT, onOpen);
+  }, []);
+
+  const choosePro = (id) => {
+    const next = pro === id ? null : id;
+    setPro(next);
+    const p = PROS.find((x) => x.id === next);
+    if (p && services.length === 0) setCat(p.cat);
+  };
+  const toggleService = (id) => {
+    const removing = services.includes(id);
+    setServices((prev) => (removing ? prev.filter((x) => x !== id) : [...prev, id]));
+    if (removing && id === MAKEUP_ID && pro === FOUNDER.id) setPro(null);
+  };
+  const hasMakeup = services.includes(MAKEUP_ID);
+
+  const cleanName = name.trim();
+  const cleanWhen = when.trim();
+  const proName = (id) => (id === FOUNDER.id ? b.makeupLabel : PROS.find((x) => x.id === id)?.name);
+  const derived = [...new Set(services.map((id) => PRO_FOR_SERVICE[id]).filter(Boolean))];
+  const proLabel = pro ? proName(pro) : derived.length ? `${derived.map(proName).join(", ")} (${b.suggested})` : b.proFallback;
+  const shiftLabel = (b.shifts[shift] || b.shifts.flexivel)[0];
+  const serviceList = services.map((id) => serviceNameForMessage(lang, id)).join(", ");
+  const valid = cleanName.length > 0 && services.length > 0;
+  const doneCount = [cleanName, pro, services.length, shift].filter(Boolean).length;
+
+  const lines = [langTag[lang] + b.msg.intro(cleanName), b.msg.services + serviceList, b.msg.pro + proLabel, b.msg.shift + shiftLabel];
+  if (cleanWhen) lines.push(b.msg.when + cleanWhen);
+  lines.push(b.msg.outro);
+  const link = waUrl(lines.join("\n"));
+
+  const onSend = (e) => {
+    if (valid) return;
+    e.preventDefault();
+    setTouched(true);
+    setShake((s) => s + 1);
+    if (!cleanName) nameRef.current?.focus();
+    else servicesRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+  const reset = () => {
+    setPro(null);
+    setServices([]);
+    setShift(null);
+    setWhen("");
+    setTouched(false);
+  };
+
+  const introParts = b.msg.intro("§NAME§").split("*§NAME§*");
+  const missing = [!cleanName && b.missingName, !services.length && b.missingServices].filter(Boolean);
+  const placeholder = (txt) => <span className="italic text-white/40">{txt}</span>;
+  const check = (on) => (
+    <span className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${on ? "scale-100 border-malva bg-malva text-white" : "scale-90 border-white/20 text-transparent"}`}>
+      <Icon name="check" size={13} strokeWidth={2.4} />
+    </span>
+  );
+
+  return (
+    <section id="agendar" className="relative py-24 sm:py-32">
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true" style={{ background: "radial-gradient(50% 45% at 85% 30%, rgba(70,37,54,.55), transparent 70%)" }} />
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <SectionTitle title={b.title} text={b.text} />
+          <p className="flex items-center gap-2.5 text-sm text-white/55">
+            <Icon name="clock" size={16} className="text-malva" />
+            {b.hours}
+          </p>
+        </div>
+
+        <div className="mt-12 grid grid-cols-1 gap-5 lg:grid-cols-[1.3fr_.7fr] lg:items-start">
+          <div className="relative min-w-0 rounded-[28px] border border-white/[0.07] bg-surface/70 p-6 sm:p-10">
+            {flash > 0 && <span key={flash} className="booking-flash pointer-events-none absolute inset-0 rounded-[28px]" aria-hidden="true" />}
+            <ol className="space-y-10">
+              <BookingStep n={1} title={b.steps[0]} done={!!cleanName}>
+                <label className="group relative flex items-center">
+                  <Icon name="user" size={18} className="pointer-events-none absolute left-5 text-white/40 transition-colors group-focus-within:text-malva" />
+                  <input
+                    ref={nameRef}
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder={b.namePlaceholder}
+                    autoComplete="given-name"
+                    maxLength={60}
+                    aria-label={b.nameLabel}
+                    aria-invalid={touched && !cleanName}
+                    className={`search-input w-full rounded-2xl border bg-white/[0.04] py-4 pl-12 pr-5 text-base text-white outline-none transition placeholder:text-white/35 focus:border-malva/60 focus:bg-white/[0.06] ${touched && !cleanName ? "border-malva/70" : "border-white/10"}`}
+                  />
+                </label>
+                {touched && !cleanName && <p className="mt-2 text-[13px] text-malva">{b.nameError}</p>}
+              </BookingStep>
+
+              <BookingStep n={2} title={b.steps[1]} done={!!pro}>
+                <div className="grid gap-3 sm:grid-cols-3">
+                  {PROS.map((p, i) => {
+                    const sel = pro === p.id;
+                    const tp = t.team.pros[p.id];
+                    return (
+                      <button
+                        key={p.id}
+                        type="button"
+                        aria-pressed={sel}
+                        onClick={() => choosePro(p.id)}
+                        className={`group relative flex items-center gap-4 rounded-2xl border p-3 pr-4 text-left transition-all duration-300 sm:flex-col sm:items-center sm:gap-3 sm:p-4 sm:pt-5 sm:text-center ${sel ? "border-malva bg-malva/15 shadow-[0_14px_36px_-18px_rgba(191,126,132,0.8)]" : "border-white/10 bg-white/[0.03] hover:-translate-y-0.5 hover:border-malva/60 hover:bg-white/[0.06]"}`}
+                      >
+                        <span className={`relative h-14 w-14 shrink-0 overflow-hidden rounded-full border-2 transition-colors sm:h-16 sm:w-16 ${sel ? "border-malva" : "border-malva/40"}`}>
+                          <Portrait person={p} tone={i + 1} small />
+                        </span>
+                        <span className="min-w-0 flex-1">
+                          <span className="block text-[15px] font-medium text-white">{p.name}</span>
+                          <span className="mt-0.5 block text-[12.5px] text-malva">{tp.clear}</span>
+                          <span className="mt-1 block text-[11.5px] leading-snug text-white/45">{tp.services}</span>
+                        </span>
+                        <span className="sm:absolute sm:right-3 sm:top-3">{check(sel)}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+                {pro === FOUNDER.id && (
+                  <div className="fade-up mt-3 flex items-center gap-3 rounded-2xl border border-malva bg-malva/15 px-4 py-3">
+                    <span className="h-10 w-10 shrink-0 overflow-hidden rounded-full border border-malva/60">
+                      <Portrait person={FOUNDER} tone={0} small letterSize="text-[1.6rem]" />
+                    </span>
+                    <span className="min-w-0 flex-1 text-[14px] font-medium text-white">{b.makeupLabel}</span>
+                    <button type="button" onClick={() => setPro(null)} aria-pressed="true" aria-label={b.makeupSelected}>
+                      {check(true)}
+                    </button>
+                  </div>
+                )}
+                <p className="mt-3 text-[13px] text-white/45">{b.proHint}</p>
+              </BookingStep>
+
+              <BookingStep n={3} title={b.steps[2]} done={services.length > 0}>
+                <div ref={servicesRef} className="scroll-mt-28">
+                  <p className="text-[14px] text-white/55">{b.servicesHelp}</p>
+                  <div className="no-scrollbar -mx-6 mt-4 flex gap-2 overflow-x-auto px-6 sm:mx-0 sm:flex-wrap sm:px-0">
+                    {CATEGORY_IDS.map((c) => {
+                      const count = services.filter((id) => SERVICES.find((x) => x.id === id)?.cat === c.id).length;
+                      const active = cat === c.id;
+                      return (
+                        <button key={c.id} type="button" onClick={() => setCat(c.id)} className={`flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full border px-4 py-2 text-[13px] transition-all duration-300 ${active ? "border-malva/70 bg-white/[0.07] text-white" : "border-white/10 text-white/60 hover:border-malva/40 hover:text-white"}`}>
+                          <Icon name={c.icon} size={15} className={active ? "text-malva" : ""} />
+                          {t.categories[c.id]}
+                          {count > 0 && <span className="flex h-5 min-w-[20px] items-center justify-center rounded-full bg-malva px-1.5 text-[11px] font-medium text-white">{count}</span>}
+                        </button>
+                      );
+                    })}
+                  </div>
+                  <div key={cat} className="fade-up mt-4 flex flex-wrap gap-2">
+                    {SERVICES.filter((s) => s.cat === cat).map((s) => {
+                      const sel = services.includes(s.id);
+                      return (
+                        <button key={s.id} type="button" aria-pressed={sel} onClick={() => toggleService(s.id)} className={`flex items-center gap-1.5 rounded-full border px-4 py-2.5 text-[14px] transition-all duration-300 active:scale-95 ${sel ? "border-malva bg-malva text-white shadow-[0_8px_22px_-10px_rgba(191,126,132,0.9)]" : "border-white/[0.12] text-white/75 hover:border-malva/60 hover:text-white"}`}>
+                          {sel && <Icon name="check" size={14} strokeWidth={2.2} />}
+                          {serviceName(lang, s.id)}
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  {hasMakeup && (
+                    <div className="fade-up mt-5 flex flex-col gap-4 rounded-2xl border border-malva/40 bg-gradient-to-r from-ameixa/70 to-ameixa/20 p-4 sm:flex-row sm:items-center">
+                      <div className="flex min-w-0 flex-1 items-center gap-4">
+                        <span className="h-12 w-12 shrink-0 overflow-hidden rounded-full border border-malva/70">
+                          <Portrait person={FOUNDER} tone={0} small letterSize="text-[1.8rem]" />
+                        </span>
+                        <span className="min-w-0">
+                          <span className="block font-display text-xl leading-tight text-white">{b.makeupTitle}</span>
+                          <span className="mt-0.5 block text-[13px] text-white/65">{b.makeupText}</span>
+                        </span>
+                      </div>
+                      <button type="button" aria-pressed={pro === FOUNDER.id} onClick={() => setPro(pro === FOUNDER.id ? null : FOUNDER.id)} className={`flex shrink-0 items-center justify-center gap-1.5 rounded-full border px-4 py-2.5 text-[13px] font-medium transition-all duration-300 ${pro === FOUNDER.id ? "border-malva bg-malva text-white" : "border-malva/60 text-malva hover:bg-malva hover:text-white"}`}>
+                        {pro === FOUNDER.id && <Icon name="check" size={14} strokeWidth={2.2} />}
+                        {pro === FOUNDER.id ? b.makeupSelected : b.makeupSelect}
+                      </button>
+                    </div>
+                  )}
+
+                  {services.length > 0 && (
+                    <div className="mt-5 flex flex-wrap items-center gap-2 border-t border-white/[0.07] pt-5">
+                      <span className="mr-1 text-[13px] text-white/50">{b.selected}</span>
+                      {services.map((id) => (
+                        <span key={id} className="fade-up inline-flex items-center gap-1 rounded-full bg-ameixa/80 py-1 pl-3 pr-1 text-[13px] text-white">
+                          {serviceName(lang, id)}
+                          <button type="button" onClick={() => toggleService(id)} className="flex h-6 w-6 items-center justify-center rounded-full text-white/60 transition hover:bg-white/10 hover:text-white" aria-label={b.remove(serviceName(lang, id))}>
+                            <Icon name="x" size={13} />
+                          </button>
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                  {touched && services.length === 0 && <p className="mt-3 text-[13px] text-malva">{b.servicesError}</p>}
+                </div>
+              </BookingStep>
+
+              <BookingStep n={4} title={b.steps[3]} done={!!shift} last>
+                <div className="grid grid-cols-3 gap-2 sm:gap-3">
+                  {SHIFTS.map((s) => {
+                    const sel = shift === s.id;
+                    const [label, hint] = b.shifts[s.id];
+                    return (
+                      <button key={s.id} type="button" aria-pressed={sel} onClick={() => setShift(s.id)} className={`flex flex-col items-center gap-2 rounded-2xl border px-2 py-4 text-center transition-all duration-300 ${sel ? "border-malva bg-malva/15 text-white" : "border-white/10 bg-white/[0.03] text-white/70 hover:-translate-y-0.5 hover:border-malva/60 hover:text-white"}`}>
+                        <Icon name={s.icon} size={20} className={sel ? "text-malva" : ""} />
+                        <span className="text-[15px] font-medium">{label}</span>
+                        <span className="text-[11px] text-white/45 sm:text-[12px]">{hint}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+                <label className="mt-5 block">
+                  <span className="text-[14px] text-white/70">
+                    {b.whenLabel} <span className="text-white/40">({b.optional})</span>
+                  </span>
+                  <input type="text" value={when} onChange={(e) => setWhen(e.target.value)} placeholder={b.whenPlaceholder} maxLength={80} className="search-input mt-2 w-full rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-base text-white outline-none transition placeholder:text-white/35 focus:border-malva/60 focus:bg-white/[0.06]" />
+                </label>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {b.whenIdeas.map((w) => (
+                    <button key={w} type="button" onClick={() => setWhen(w)} className={`rounded-full border px-3 py-1.5 text-[12px] transition ${cleanWhen === w ? "border-malva/70 text-white" : "border-white/10 text-white/55 hover:border-malva/50 hover:text-white"}`}>
+                      {w}
+                    </button>
+                  ))}
+                </div>
+              </BookingStep>
+            </ol>
+          </div>
+
+          <aside className="min-w-0 lg:sticky lg:top-24">
+            <div className="glass relative overflow-hidden rounded-[28px] p-5 sm:p-7">
+              <div className="flex items-center justify-between">
+                <p className="font-display text-2xl text-white">{b.summary}</p>
+                <span className="text-[13px] text-white/55">{b.progress(doneCount)}</span>
+              </div>
+              <div className="mt-3 h-1 overflow-hidden rounded-full bg-white/10">
+                <div className="h-full rounded-full transition-[width] duration-700 ease-out" style={{ width: `${Math.max(6, doneCount * 25)}%`, background: "linear-gradient(90deg,#795f68,#bf7e84,#f0c9c4)" }} />
+              </div>
+              <div className="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-ink/60">
+                <div className="flex items-center gap-3 border-b border-white/[0.07] px-4 py-3">
+                  <LogoMark className="h-8 w-8" />
+                  <div className="min-w-0">
+                    <p className="truncate text-sm text-white">Euphoria Studio de Beleza</p>
+                    <p className="text-[11px] text-white/45">{b.previewTitle}</p>
+                  </div>
+                </div>
+                <div className="p-4" aria-live="polite">
+                  <div className="ml-auto max-w-[96%] rounded-2xl rounded-tr-sm bg-ameixa/85 px-4 py-3 text-[14px] leading-relaxed text-white/90 shadow-[0_10px_30px_-18px_rgba(0,0,0,0.9)]">
+                    {langTag[lang] && <p className="mb-1 text-[12px] text-malva">{langTag[lang].trim()}</p>}
+                    <p>
+                      {introParts[0]}
+                      {cleanName ? <strong className="font-semibold text-white">{cleanName}</strong> : placeholder(b.phName)}
+                      {introParts[1]}
+                    </p>
+                    <p className="mt-2">
+                      {b.msg.services}
+                      {services.length ? serviceList : placeholder(b.phServices)}
+                    </p>
+                    <p>{b.msg.pro + proLabel}</p>
+                    <p>{b.msg.shift + shiftLabel}</p>
+                    {cleanWhen && <p>{b.msg.when + cleanWhen}</p>}
+                    <p className="mt-2">{b.msg.outro}</p>
+                    <span className="mt-1 block text-right text-[10px] text-white/40">{b.now}</span>
+                  </div>
+                </div>
+              </div>
+              {!valid && <p className="mt-4 text-[13px] text-white/55">{b.missing(missing)}</p>}
+              <a key={`send-${shake}`} href={valid ? link : "#agendar"} {...(valid ? ext : {})} onClick={onSend} aria-disabled={!valid} className={`btn-primary mt-4 w-full py-4 text-[15px] ${valid ? "" : "is-disabled"} ${shake ? "shake" : ""}`}>
+                <WhatsIcon size={18} />
+                {b.send}
+              </a>
+              <p className="mt-3 text-center text-[12px] text-white/45">{b.note}</p>
+              {(pro || services.length > 0 || shift || when) && (
+                <button type="button" onClick={reset} className="mx-auto mt-3 flex items-center gap-1.5 text-[13px] text-white/45 transition-colors hover:text-white">
+                  <Icon name="rotateCcw" size={13} />
+                  {b.reset}
+                </button>
+              )}
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* --------------------------------------------------------------------------
+   LOCALIZAÇÃO + CONTATO
+   -------------------------------------------------------------------------- */
+
+function InfoRow({ icon, title, aside, children }) {
+  return (
+    <div className="flex gap-4 rounded-2xl border border-white/[0.07] bg-surface/70 p-5 sm:p-6">
+      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-ameixa text-malva">{icon === "whatsapp" ? <WhatsIcon size={18} /> : <Icon name={icon} size={19} />}</span>
+      <div className="min-w-0 flex-1">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <h3 className="font-display text-[1.4rem] leading-tight text-white">{title}</h3>
+          {aside}
+        </div>
+        <div className="mt-2 space-y-1 text-[15px] font-light text-white/65">{children}</div>
+      </div>
+    </div>
+  );
+}
+
+function MapCard() {
+  const { t } = useI18n();
+  return (
+    <a href={MAPS_PLACE} {...ext} className="group relative block min-h-[340px] overflow-hidden rounded-[28px] border border-white/10 bg-[#242424]" aria-label={t.contact.mapAria}>
+      <svg viewBox="0 0 600 450" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 h-full w-full transition-transform duration-[1600ms] ease-out group-hover:scale-105" aria-hidden="true">
+        <rect width="600" height="450" fill="#242424" />
+        <rect x="70" y="252" width="120" height="74" rx="8" fill="#2b332b" />
+        <path d="M545 -10 C 505 120, 575 240, 530 460" stroke="#28323b" strokeWidth="20" fill="none" />
+        <g stroke="#2f2f2f" strokeWidth="9">
+          <path d="M-10 70 H610" />
+          <path d="M-10 150 H610" />
+          <path d="M-10 310 H610" />
+          <path d="M-10 385 H610" />
+          <path d="M100 -10 V460" />
+          <path d="M205 -10 V460" />
+          <path d="M405 -10 V460" />
+          <path d="M478 -10 V460" />
+        </g>
+        <path d="M-10 225 H610" stroke="#383838" strokeWidth="14" />
+        <path d="M300 -10 V460" stroke="#3b3b3b" strokeWidth="24" />
+        <path d="M300 -10 V460" stroke="#bf7e84" strokeOpacity=".22" strokeWidth="1.5" strokeDasharray="10 12" />
+        <text x="312" y="430" fill="#ffffff" opacity=".3" fontSize="13" fontFamily="Jost, sans-serif">Centro</text>
+      </svg>
+      <div className="absolute inset-0" style={{ background: "radial-gradient(40% 40% at 50% 50%, rgba(191,126,132,.18), transparent 70%)" }} />
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-full">
+        <span className="pin-pulse absolute left-1/2 top-full h-16 w-16 -translate-x-1/2 -translate-y-1/2 rounded-full" />
+        <span className="relative flex h-14 w-14 items-center justify-center rounded-full rounded-br-none border border-white/30 bg-gradient-to-br from-[#d39aa0] via-malva to-[#8f5a60] shadow-[0_14px_30px_-8px_rgba(191,126,132,0.8)] transition-transform duration-500 group-hover:-translate-y-1" style={{ transform: "rotate(45deg)" }}>
+          <span style={{ transform: "rotate(-45deg)" }} className="flex">
+            <LogoMark className="h-9 w-9" />
+          </span>
+        </span>
+      </div>
+      <div className="absolute inset-x-4 bottom-4 flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-ink/70 p-4 backdrop-blur-xl sm:inset-x-6 sm:bottom-6">
+        <div className="min-w-0">
+          <p className="font-display text-lg leading-tight text-white sm:text-xl">Euphoria Studio de Beleza</p>
+          <p className="mt-0.5 text-[13px] text-white/60">{t.contact.mapSub}</p>
+        </div>
+        <span className="flex shrink-0 items-center gap-1.5 rounded-full bg-white/10 px-3.5 py-2 text-[13px] text-white transition-colors group-hover:bg-malva">
+          {t.contact.openMaps}
+          <Icon name="arrowUpRight" size={14} />
+        </span>
+      </div>
+    </a>
+  );
+}
+
+function Contact() {
+  const { t, lang } = useI18n();
+  const c = t.contact;
+  const isOpen = useOpenStatus();
+  const status =
+    isOpen === null ? null : (
+      <span className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs ${isOpen ? "bg-[#7fd1a5]/10 text-[#a6e3c3]" : "bg-white/5 text-white/60"}`}>
+        <span className={`h-1.5 w-1.5 rounded-full ${isOpen ? "animate-pulse bg-[#7fd1a5]" : "bg-taupe"}`} />
+        {isOpen ? c.openNow : c.closedNow}
+      </span>
+    );
+  return (
+    <section id="contato" className="relative py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <SectionTitle title={c.title} text={c.text} />
+        <div className="mt-12 grid gap-5 lg:grid-cols-[.85fr_1.15fr]">
+          <div className="flex flex-col gap-4">
+            <InfoRow icon="mapPin" title={c.address}>
+              <p>{ADDRESS.street}</p>
+              <p>
+                {ADDRESS.city}, {ADDRESS.cep}
+              </p>
+              <p className="text-malva">{c.reference}</p>
+            </InfoRow>
+            <InfoRow icon="clock" title={c.hours} aside={status}>
+              <p className="flex justify-between gap-4">
+                <span>{c.days}</span>
+                <span className="text-white">{c.range}</span>
+              </p>
+              <p className="flex justify-between gap-4">
+                <span>{c.closedDays}</span>
+                <span>{c.closed}</span>
+              </p>
+            </InfoRow>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <InfoRow icon="whatsapp" title={c.whatsapp}>
+                <a href={waHello(lang)} {...ext} className="text-white underline decoration-malva/50 underline-offset-4 transition hover:decoration-malva">
+                  {WHATSAPP_DISPLAY}
+                </a>
+              </InfoRow>
+              <InfoRow icon="instagram" title="Instagram">
+                <a href={IG_URL} {...ext} className="break-all text-white underline decoration-malva/50 underline-offset-4 transition hover:decoration-malva">
+                  @{CONFIG.instagram}
+                </a>
+              </InfoRow>
+            </div>
+            <div className="mt-2 flex flex-col gap-3 sm:flex-row">
+              <a href={MAPS_ROUTE} {...ext} className="btn-primary flex-1 px-6 py-4 text-[15px]">
+                <Icon name="navigation" size={17} />
+                {c.route}
+              </a>
+              <a href={waHello(lang)} {...ext} className="btn-glass flex-1 px-6 py-4 text-[15px]">
+                <WhatsIcon size={18} />
+                {c.chat}
+              </a>
+            </div>
+          </div>
+          <MapCard />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* --------------------------------------------------------------------------
+   FOOTER + BOTÃO FLUTUANTE + APP
+   -------------------------------------------------------------------------- */
+
+function Footer() {
+  const { t, lang } = useI18n();
+  return (
+    <footer className="relative border-t border-white/[0.06] bg-[#191919] pb-32 pt-20 sm:pb-16">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="grid gap-14 lg:grid-cols-[1.3fr_1fr_1fr]">
+          <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+            <LogoFull className="w-56" />
+            <p className="mt-6 max-w-xs text-[15px] font-light leading-relaxed text-white/55">{t.footer.tagline}</p>
+            <div className="mt-6 flex gap-3">
+              <a href={IG_URL} {...ext} className="icon-btn" aria-label="Instagram">
+                <Icon name="instagram" size={19} />
+              </a>
+              <a href={waHello(lang)} {...ext} className="icon-btn" aria-label="WhatsApp">
+                <WhatsIcon size={18} />
+              </a>
+              <a href={MAPS_PLACE} {...ext} className="icon-btn" aria-label="Google Maps">
+                <Icon name="mapPin" size={19} />
+              </a>
+            </div>
+          </div>
+          <nav aria-label={t.footer.nav} className="text-center lg:text-left">
+            <p className="font-display text-xl text-white">{t.footer.nav}</p>
+            <ul className="mt-4 space-y-3 text-[15px] text-white/60">
+              {NAV_IDS.map((id) => (
+                <li key={id}>
+                  <a href={`#${id}`} className="transition-colors hover:text-malva">
+                    {t.nav[id]}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <div className="text-center lg:text-left">
+            <p className="font-display text-xl text-white">{t.footer.visit}</p>
+            <address className="mt-4 space-y-1.5 text-[15px] font-light not-italic text-white/60">
+              <p>{ADDRESS.street}</p>
+              <p>
+                {ADDRESS.city}, {ADDRESS.cep}
+              </p>
+              <p>
+                <a href={waHello(lang)} {...ext} className="transition-colors hover:text-malva">
+                  WhatsApp {WHATSAPP_DISPLAY}
+                </a>
+              </p>
+              <p>{t.footer.hours}</p>
+            </address>
+            <a {...bookingLink()} className="btn-primary mt-6 px-6 py-3 text-sm">
+              <Icon name="calendar" size={16} />
+              {t.footer.book}
+            </a>
+          </div>
+        </div>
+        <div className="mt-16 flex items-center gap-4" aria-hidden="true">
+          <span className="h-px flex-1 bg-gradient-to-r from-transparent to-malva/40" />
+          <Icon name="heart" size={16} className="text-malva" />
+          <span className="h-px flex-1 bg-gradient-to-l from-transparent to-malva/40" />
+        </div>
+        <div className="mt-6 flex flex-col items-center justify-between gap-2 text-center text-[13px] text-white/40 sm:flex-row sm:text-left">
+          <p>
+            © {new Date().getFullYear()} Euphoria Studio de Beleza. {t.footer.rights}
+          </p>
+          <p>{t.footer.made}</p>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+function FloatingWhats() {
+  const { t, lang } = useI18n();
+  const show = useScrolledPast(320);
+  return (
+    <a href={waHello(lang)} {...ext} aria-label={t.fab.aria} className={`fab group fixed bottom-0 right-0 z-40 flex items-center pr-4 sm:pr-6 ${show ? "fab-in" : "fab-out"}`} style={{ paddingBottom: "calc(1.1rem + env(safe-area-inset-bottom, 0px))" }}>
+      <span className="fab-label glass mr-3 hidden rounded-full px-4 py-2 text-sm text-white/90 sm:block">{t.fab.label}</span>
+      <span className="relative flex h-14 w-14 items-center justify-center rounded-full text-white transition-transform duration-300 group-hover:scale-105" style={{ background: "linear-gradient(135deg,#d39aa0,#bf7e84 50%,#8f5a60)", boxShadow: "0 14px 34px -10px rgba(191,126,132,.85), inset 0 1px 0 rgba(255,255,255,.3)" }}>
+        <span className="fab-ring absolute inset-0 rounded-full" />
+        <WhatsIcon size={26} />
+      </span>
+    </a>
+  );
+}
+
+function App() {
+  return (
+    <I18nProvider>
+      <Header />
+      <main>
+        <Hero />
+        <Services />
+        <Transformations />
+        <Quiz />
+        <Experience />
+        <StudioSpace />
+        <Team />
+        <Booking />
+        <Contact />
+      </main>
+      <Footer />
+      <FloatingWhats />
+    </I18nProvider>
+  );
+}
+
+createRoot(document.getElementById("root")).render(<App />);
+
+  </script>
+</body>
+</html>
